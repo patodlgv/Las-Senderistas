@@ -1,0 +1,947 @@
+/* ============================================
+   RUTAS, CALENDARIO, REGISTRO, GALERIA, BLOG, CONTACTO
+   Styles for remaining pages
+   ============================================ */
+
+/* ============================================
+   RUTAS PAGE
+   ============================================ */
+.rutas-section {
+  padding: var(--spacing-giant) 0;
+  background: white;
+}
+
+.rutas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-large);
+  margin-bottom: var(--spacing-xl);
+}
+
+.ruta-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.ruta-card.ruta-especial {
+  border: 2px solid var(--brand-primary);
+}
+
+.especial-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--brand-primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.ruta-image-container {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.ruta-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ruta-card:hover .ruta-image {
+  transform: scale(1.1);
+}
+
+.ruta-nivel-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: white;
+  color: var(--text-primary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.nivel-principiante {
+  background: #4ade80 !important;
+  color: white !important;
+}
+
+.nivel-intermedio {
+  background: #fbbf24 !important;
+  color: white !important;
+}
+
+.nivel-avanzado {
+  background: #ef4444 !important;
+  color: white !important;
+}
+
+.nivel-todas {
+  background: var(--brand-primary) !important;
+  color: white !important;
+}
+
+.ruta-content {
+  padding: var(--spacing-medium);
+}
+
+.ruta-nombre {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.ruta-descripcion {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-medium);
+}
+
+.ruta-details {
+  display: flex;
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
+  flex-wrap: wrap;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.detail-item svg {
+  color: var(--brand-primary);
+}
+
+.ruta-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-medium);
+  border-top: 1px solid var(--border-light);
+}
+
+.ruta-precio {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+/* ============================================
+   CALENDARIO PAGE
+   ============================================ */
+.calendario-section {
+  padding: var(--spacing-giant) 0;
+  background: white;
+}
+
+.calendario-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.calendario-card,
+.proximos-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: var(--spacing-large);
+  box-shadow: var(--shadow-sm);
+}
+
+.calendario-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-medium);
+}
+
+.calendario-hint {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-medium);
+}
+
+.calendar-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-calendar {
+  width: 100%;
+}
+
+.proximos-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.proximo-item {
+  background: white;
+  border-radius: 16px;
+  padding: var(--spacing-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-medium);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.proximo-item:hover {
+  transform: translateX(4px);
+}
+
+.proximo-info {
+  flex: 1;
+}
+
+.proximo-fecha {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-primary);
+  margin-bottom: 4px;
+}
+
+.proximo-nombre {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.proximo-nivel {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.instrucciones-card {
+  background: var(--bg-subtle);
+  border-radius: 24px;
+  padding: var(--spacing-large);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.instrucciones-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+}
+
+.instrucciones-list {
+  list-style: none;
+  counter-reset: step-counter;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+.instrucciones-list li {
+  counter-increment: step-counter;
+  display: flex;
+  gap: var(--spacing-medium);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.instrucciones-list li::before {
+  content: counter(step-counter);
+  background: var(--brand-primary);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.instrucciones-note {
+  margin-top: var(--spacing-medium);
+  padding: var(--spacing-medium);
+  background: white;
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-left: 4px solid var(--brand-primary);
+}
+
+/* ============================================
+   REGISTRO PAGE
+   ============================================ */
+.intro-section {
+  padding: var(--spacing-giant) 0;
+  background: white;
+}
+
+.intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-medium);
+}
+
+.pasos-section {
+  padding: var(--spacing-giant) 0;
+  background: var(--bg-subtle);
+}
+
+.pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-large);
+}
+
+.paso-card {
+  background: white;
+  border-radius: 24px;
+  padding: var(--spacing-large);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.paso-numero {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--spacing-medium);
+  background: var(--brand-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.paso-titulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.paso-descripcion {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.incluye-section {
+  padding: var(--spacing-giant) 0;
+  background: white;
+}
+
+.incluye-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-medium);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.incluye-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+.incluye-icon {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.pricing-section {
+  padding: var(--spacing-giant) 0;
+  background: var(--bg-subtle);
+}
+
+.pricing-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.pricing-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.pricing-amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.pricing-amount span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.pricing-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-large);
+  line-height: 1.6;
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-large);
+  text-align: left;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.pricing-features li::before {
+  content: '✓';
+  color: var(--brand-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.pricing-note {
+  font-size: 14px;
+  color: var(--text-light);
+  padding: var(--spacing-medium);
+  background: var(--bg-subtle);
+  border-radius: 12px;
+  border-left: 4px solid var(--brand-primary);
+  text-align: left;
+}
+
+/* ============================================
+   GALERIA PAGE
+   ============================================ */
+.instagram-banner {
+  padding: var(--spacing-large) 0;
+  background: var(--bg-card);
+}
+
+.instagram-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-medium);
+  flex-wrap: wrap;
+}
+
+.instagram-content svg {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.instagram-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.instagram-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.galeria-section {
+  padding: var(--spacing-giant) 0;
+  background: white;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-xl);
+}
+
+.galeria-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.galeria-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.galeria-item:hover .galeria-imagen {
+  transform: scale(1.1);
+}
+
+.galeria-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  padding: var(--spacing-medium);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galeria-item:hover .galeria-overlay {
+  opacity: 1;
+}
+
+.galeria-categoria {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.galeria-cta {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+/* ============================================
+   BLOG PAGE
+   ============================================ */
+.blog-section {
+  padding: var(--spacing-giant) 0;
+  background: white;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-giant);
+}
+
+.blog-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.blog-image-container {
+  height: 250px;
+  overflow: hidden;
+}
+
+.blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image {
+  transform: scale(1.1);
+}
+
+.blog-content {
+  padding: var(--spacing-large);
+}
+
+.blog-titulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.blog-resumen {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-medium);
+}
+
+.blog-meta {
+  display: flex;
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
+}
+
+.blog-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.blog-meta-item svg {
+  color: var(--brand-primary);
+}
+
+.blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-medium);
+  border-top: 1px solid var(--border-light);
+}
+
+.blog-fecha {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.blog-link {
+  color: var(--brand-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-link:hover {
+  color: var(--brand-hover);
+}
+
+.mas-historias {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-subtle);
+  border-radius: 24px;
+  margin-top: var(--spacing-xl);
+}
+
+.mas-historias-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-large);
+}
+
+.mas-historias-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-destacado {
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.mas-historias-text p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-medium);
+}
+
+/* ============================================
+   CONTACTO PAGE
+   ============================================ */
+.contacto-info-section {
+  padding: var(--spacing-giant) 0;
+  background: white;
+}
+
+.contacto-intro {
+  max-width: 900px;
+  margin: 0 auto var(--spacing-xl);
+  text-align: center;
+}
+
+.contacto-text {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-medium);
+}
+
+.contacto-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.contact-methods-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-medium);
+}
+
+.contact-method-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: var(--spacing-medium);
+  display: flex;
+  gap: var(--spacing-medium);
+  align-items: start;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.contact-method-card:hover {
+  transform: translateX(4px);
+}
+
+.contact-method-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-method-icon.whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+.contact-method-icon.phone {
+  background: var(--brand-primary);
+  color: white;
+}
+
+.contact-method-icon.email {
+  background: var(--brand-dark);
+  color: white;
+}
+
+.contact-method-icon.location {
+  background: var(--bg-subtle);
+  color: var(--brand-primary);
+}
+
+.contact-method-content {
+  flex: 1;
+}
+
+.contact-method-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.contact-method-text {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.contact-method-link {
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.contact-method-link:hover {
+  color: var(--brand-hover);
+}
+
+.contact-form-container {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-form-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-large);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-input,
+.form-textarea {
+  padding: 14px 16px;
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(5, 152, 158, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-note {
+  font-size: 14px;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: var(--spacing-small);
+}
+
+.faq-section {
+  padding: var(--spacing-giant) 0;
+  background: var(--bg-subtle);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-large);
+}
+
+.faq-item {
+  background: white;
+  border-radius: 16px;
+  padding: var(--spacing-large);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.faq-answer {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+  .contacto-layout,
+  .calendario-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-large);
+  }
+
+  .mas-historias-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 781px) {
+  .rutas-grid,
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pasos-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-medium);
+  }
+
+  .calendario-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contacto-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  .rutas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}

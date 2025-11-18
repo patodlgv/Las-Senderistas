@@ -1029,3 +1029,100 @@ p {
   flex: 1;
   margin-top: 100px;
 }
+
+
+/* ============================================
+   RESPONSIVE DESIGN - Mobile & Tablet
+   ============================================ */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .story-content,
+  .mission-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-large);
+  }
+
+  .mission-image,
+  .story-image {
+    order: -1;
+  }
+}
+
+@media (max-width: 781px) {
+  .main-content {
+    margin-top: 70px;
+  }
+
+  .network-header {
+    top: 0;
+    position: fixed;
+    padding: 0;
+  }
+
+  .nav-wrapper {
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+
+  .hero-buttons,
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons .btn-cta,
+  .hero-buttons .btn-secondary,
+  .cta-buttons .btn-cta,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .experiences-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advantages-grid,
+  .testimonials-grid,
+  .valores-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-medium);
+  }
+
+  .mission-stats {
+    flex-direction: column;
+    gap: var(--spacing-medium);
+  }
+
+  .info-content {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-large);
+  }
+}
+
+@media (min-width: 1440px) {
+  .experiences-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+

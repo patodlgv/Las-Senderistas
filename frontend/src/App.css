@@ -549,6 +549,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url('/images/aniversario-senderistas.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

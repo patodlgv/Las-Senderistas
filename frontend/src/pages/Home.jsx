@@ -135,6 +135,7 @@ const Home = () => {
                 <div className="experience-image-container">
                   <img src={exp.imagen} alt={exp.nombre} className="experience-image" />
                   <span className="experience-badge">{exp.nivel}</span>
+                  {exp.soldOut && <span className="sold-out-badge">SOLD OUT</span>}
                 </div>
                 <div className="experience-content">
                   <h3 className="experience-title">{exp.nombre}</h3>

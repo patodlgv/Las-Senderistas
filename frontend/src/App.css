@@ -705,6 +705,19 @@ p {
   font-weight: 600;
 }
 
+.sold-out-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #ef4444;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .experience-content {
   padding: var(--spacing-medium);
 }

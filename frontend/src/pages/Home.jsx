@@ -12,25 +12,25 @@ const Home = () => {
       nombre: 'Cerro de la Silla',
       descripcion: 'El ícono de Monterrey. Una experiencia desafiante con vistas panorámicas incomparables.',
       nivel: 'Intermedio-Avanzado',
-      imagen: 'https://images.unsplash.com/photo-1558883493-8b86ff880fec'
+      imagen: '/Images/cerro-silla.jpg'
     },
     {
       nombre: 'La Martha',
       descripcion: 'Una ruta clásica con pendientes exigentes y vistas espectaculares de la ciudad.',
       nivel: 'Intermedio',
-      imagen: 'https://images.unsplash.com/photo-1506880648420-aafaa650d147'
+      imagen: '/Images/las-senderistas-nieve.PNG',
     },
     {
-      nombre: 'Sierra Negra',
-      descripcion: 'Expedición a 4,580 metros. Una aventura de alta montaña que te llevará al límite.',
+      nombre: 'El Chupón',
+      descripcion: 'Una ruta retadora con vistas impresionantes y tramos de ascenso que ponen a prueba tu condición.',
       nivel: 'Avanzado',
-      imagen: 'https://images.unsplash.com/photo-1568987241598-6155c31740f2'
+        imagen: '/Images/el-chupon.png'
     },
     {
-      nombre: 'Aurora Boreal 2026',
-      descripcion: 'Viaje internacional especial para presenciar uno de los fenómenos más hermosos de la naturaleza.',
-      nivel: 'Todas',
-      imagen: 'https://images.unsplash.com/photo-1758272959663-b30513083206'
+       nombre: 'Chipinque',
+       descripcion: 'Un clásico de Monterrey. Senderos seguros, vistas espectaculares y naturaleza perfecta para todos los niveles.',
+      nivel: 'Intermedio',
+        imagen: '/Images/chipinque-lasenderistas.jpg',
     }
   ];
 
@@ -65,7 +65,7 @@ const Home = () => {
               Ver Calendario de Hikes
             </Link>
             <a
-              href="https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
+              href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
@@ -179,7 +179,7 @@ const Home = () => {
             </p>
             <div className="cta-buttons">
               <a
-                href="https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
+                href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-cta"

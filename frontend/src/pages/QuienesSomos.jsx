@@ -59,7 +59,7 @@ const QuienesSomos = () => {
             </div>
             <div className="story-image">
               <img 
-                src="https://images.unsplash.com/photo-1758599668974-6da5d7cc6cc4" 
+                 src="/Images/Quienes-somos.jpg"  
                 alt="Grupo Las Senderistas" 
                 className="rounded-image"
               />
@@ -95,7 +95,7 @@ const QuienesSomos = () => {
           <div className="mission-content">
             <div className="mission-image">
               <img 
-                src="https://images.unsplash.com/photo-1758272959663-b30513083206" 
+                src="/Images/quienes-dos.jpg"
                 alt="Celebración en la cumbre" 
                 className="rounded-image"
               />
@@ -110,7 +110,7 @@ const QuienesSomos = () => {
               </p>
               <div className="mission-stats">
                 <div className="stat-item">
-                  <div className="stat-number">100+</div>
+                  <div className="stat-number">1000+</div>
                   <div className="stat-label">Hikes Realizados</div>
                 </div>
                 <div className="stat-item">
@@ -118,7 +118,7 @@ const QuienesSomos = () => {
                   <div className="stat-label">Senderistas Activas</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">15+</div>
+                  <div className="stat-number">30+</div>
                   <div className="stat-label">Rutas Diferentes</div>
                 </div>
               </div>
@@ -136,7 +136,7 @@ const QuienesSomos = () => {
               Sé parte de esta increíble comunidad de mujeres que se apoyan, se inspiran y comparten la pasión por las montañas
             </p>
             <a
-              href="https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
+              href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-cta"

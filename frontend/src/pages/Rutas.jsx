@@ -16,7 +16,7 @@ const Rutas = () => {
       duracion: '5-6 horas',
       desnivel: '+800 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1558883493-8b86ff880fec'
+      imagen: '/Images/cerro-silla.jpg'
     },
     {
       nombre: 'La Martha',
@@ -26,7 +26,7 @@ const Rutas = () => {
       duracion: '4-5 horas',
       desnivel: '+650 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1506880648420-aafaa650d147'
+      imagen: '/Images/las-senderistas-nieve.PNG',
     },
     {
       nombre: 'El Chupón',
@@ -36,7 +36,7 @@ const Rutas = () => {
       duracion: '3-4 horas',
       desnivel: '+450 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1568987241598-6155c31740f2'
+      imagen: '/Images/el-chupon.png'
     },
     {
       nombre: 'Rinos',
@@ -46,7 +46,7 @@ const Rutas = () => {
       duracion: '5-6 horas',
       desnivel: '+700 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1758272959663-b30513083206'
+      imagen: '/Images/rinos-montañas.jpg'
     },
     {
       nombre: 'Sierra Negra',
@@ -56,7 +56,7 @@ const Rutas = () => {
       duracion: '2-3 días',
       desnivel: '+1,200 m',
       costo: 'Bajo cotización',
-      imagen: 'https://images.unsplash.com/photo-1568987241598-6155c31740f2',
+      imagen: '/Images/sierra-negra.jpg',
       especial: true
     },
     {
@@ -67,7 +67,7 @@ const Rutas = () => {
       duracion: '3-4 horas',
       desnivel: '+400 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1506880648420-aafaa650d147'
+      imagen: '/Images/chipinque-foto.jpg'
     },
     {
       nombre: 'Estanzuela',
@@ -77,7 +77,7 @@ const Rutas = () => {
       duracion: '2-3 horas',
       desnivel: '+200 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1758599668974-6da5d7cc6cc4'
+      imagen: '/Images/la-eztansuela.jpg'
     },
     {
       nombre: 'La Raya',
@@ -87,17 +87,17 @@ const Rutas = () => {
       duracion: '4 horas',
       desnivel: '+550 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1558883493-8b86ff880fec'
+      imagen: '/Images/la-raya4.jpg'
     },
     {
-      nombre: 'Teleférico',
-      descripcion: 'Ascenso clásico con recompensa espectacular. Disfruta de las vistas desde las alturas de Monterrey. Una ruta exigente pero muy gratificante.',
+      nombre: 'El Agujerado',
+      descripcion: 'Una ruta cercana a Monterrey que combina veredas amplias, cruces de arroyo y una subida final hacia un mirador natural.',
       nivel: 'Intermedio',
-      altitud: '1,300 m',
-      duracion: '3-4 horas',
-      desnivel: '+500 m',
+      altitud: '700 m',
+      duracion: '4-6  horas',
+      desnivel: '+250 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1758272959663-b30513083206'
+      imagen: 'Images/Cerro-del-agujerado-G1.jpg'
     },
     {
       nombre: 'Cueva de la Virgen',
@@ -107,7 +107,7 @@ const Rutas = () => {
       duracion: '3 horas',
       desnivel: '+350 m',
       costo: '$400 MXN',
-      imagen: 'https://images.unsplash.com/photo-1506880648420-aafaa650d147'
+      imagen: '/Images/cueva-virgen.jpeg'
     },
     {
       nombre: 'Aurora Boreal 2026',
@@ -117,7 +117,7 @@ const Rutas = () => {
       duracion: '7-10 días',
       desnivel: 'N/A',
       costo: 'Bajo cotización',
-      imagen: 'https://images.unsplash.com/photo-1758599668974-6da5d7cc6cc4',
+      imagen: '/Images/aurora-boreal.webp',
       especial: true
     }
   ];
@@ -201,7 +201,7 @@ const Rutas = () => {
                   <div className="ruta-footer">
                     <div className="ruta-precio">{ruta.costo}</div>
                     <a
-                      href={`https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20al%20hike%20de%20${encodeURIComponent(ruta.nombre)}`}
+                      href={`https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20al%20hike%20de%20${encodeURIComponent(ruta.nombre)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary-small"

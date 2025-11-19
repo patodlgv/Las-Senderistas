@@ -127,7 +127,7 @@ const Registro = () => {
               Únete a nosotras y descubre tu fuerza interior en las montañas de Monterrey
             </p>
             <a
-              href="https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
+              href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-cta"

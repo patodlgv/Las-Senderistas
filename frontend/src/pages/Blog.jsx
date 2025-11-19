@@ -15,7 +15,7 @@ const Blog = () => {
       autor: 'Las Senderistas',
       fecha: '10 de Agosto, 2025',
       tiempo: '5 min',
-      imagen: 'https://images.unsplash.com/photo-1758599668974-6da5d7cc6cc4',
+      imagen: '/Images/primer-hike.jpg',
       contenido: `
         <h3>Bienvenida al mundo del hiking</h3>
         <p>Hacer tu primer hike puede parecer intimidante, pero con la preparación adecuada, será una experiencia increíble. Aquí te compartimos todo lo que necesitas saber.</p>
@@ -58,7 +58,7 @@ const Blog = () => {
       autor: 'Las Senderistas',
       fecha: '5 de Agosto, 2025',
       tiempo: '7 min',
-      imagen: 'https://images.unsplash.com/photo-1568987241598-6155c31740f2',
+      imagen: '/Images/equipo-llevar.jpg',
       contenido: `
         <h3>Equipo esencial para Monterrey</h3>
         <p>Las montañas de Monterrey tienen características particulares: clima seco, sol intenso, terreno rocoso y temperaturas variables. Aquí te decimos qué necesitas.</p>
@@ -116,7 +116,7 @@ const Blog = () => {
       autor: 'Las Senderistas',
       fecha: '28 de Julio, 2025',
       tiempo: '10 min',
-      imagen: 'https://images.unsplash.com/photo-1568987241598-6155c31740f2',
+      imagen: '/Images/sierra-negra.jpg',
       contenido: `
         <h3>El reto más grande</h3>
         <p>Sierra Negra, con sus 4,580 metros de altitud, representa el quinto pico más alto de México. Para nuestro grupo, fue más que una montaña: fue una prueba de determinación, trabajo en equipo y superación personal.</p>

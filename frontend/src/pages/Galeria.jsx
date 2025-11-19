@@ -6,50 +6,50 @@ const Galeria = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Imágenes de hikes y experiencias del grupo
   const imagenes = [
     {
-      url: 'https://images.unsplash.com/photo-1568987241598-6155c31740f2',
+      url: '/Images/las-senderistas-nieve.PNG',
       alt: 'Grupo en la cumbre',
       categoria: 'Hikes'
     },
     {
-      url: 'https://images.unsplash.com/photo-1758599668974-6da5d7cc6cc4',
+      url: '/Images/Quienes-somos.jpg',
       alt: 'Amigas en el sendero',
       categoria: 'Comunidad'
     },
     {
-      url: 'https://images.unsplash.com/photo-1758272959663-b30513083206',
+      url: '/Images/quienes-dos.jpg',
       alt: 'Celebración en la cumbre',
       categoria: 'Logros'
     },
     {
-      url: 'https://images.unsplash.com/photo-1506880648420-aafaa650d147',
-      alt: 'Amanecer en la montaña',
-      categoria: 'Paisajes'
+      url: '/Images/aniversario-senderistas.jpg',
+      alt: 'Aniversario Senderista',
+      categoria: 'Aniversario'
     },
     {
-      url: 'https://images.unsplash.com/photo-1558883493-8b86ff880fec',
+      // ojo: que coincida EXACTO con el nombre del archivo en /public/Videos
+      url: '/Videos/video-taza.mp4',
       alt: 'Vista desde la cumbre',
-      categoria: 'Vistas'
+      categoria: 'Reels'
     },
     {
-      url: 'https://images.pexels.com/photos/697244/pexels-photo-697244.jpeg',
+      url: '/Videos/patagonia-senderistas.mp4',
       alt: 'Grupo celebrando',
       categoria: 'Comunidad'
     },
     {
-      url: 'https://images.unsplash.com/photo-1568987241598-6155c31740f2',
+      url: '/Videos/reel-3.mp4',
       alt: 'Escalada en roca',
       categoria: 'Aventura'
     },
     {
-      url: 'https://images.unsplash.com/photo-1758599668974-6da5d7cc6cc4',
+      url: '/Videos/reel-4.mp4',
       alt: 'En el bosque',
       categoria: 'Naturaleza'
     },
     {
-      url: 'https://images.unsplash.com/photo-1506880648420-aafaa650d147',
+      url: '/Videos/reel-5.mp4',
       alt: 'Montañas al atardecer',
       categoria: 'Paisajes'
     }
@@ -94,14 +94,32 @@ const Galeria = () => {
       <section className="galeria-section">
         <div className="container">
           <div className="galeria-grid">
-            {imagenes.map((imagen, index) => (
-              <div key={index} className="galeria-item hover-scale">
-                <img src={imagen.url} alt={imagen.alt} className="galeria-imagen" />
-                <div className="galeria-overlay">
-                  <span className="galeria-categoria">{imagen.categoria}</span>
+            {imagenes.map((item, index) => {
+              const esVideo = item.url.endsWith('.mp4');
+
+              return (
+                <div key={index} className="galeria-item hover-scale">
+                  {esVideo ? (
+                    <video
+                      src={item.url}
+                      className="galeria-imagen"
+                      controls
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      src={item.url}
+                      alt={item.alt}
+                      className="galeria-imagen"
+                    />
+                  )}
+                  <div className="galeria-overlay">
+                    <span className="galeria-categoria">{item.categoria}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="galeria-cta">
@@ -109,7 +127,7 @@ const Galeria = () => {
               ¿Quieres formar parte de estas increíbles experiencias?
             </p>
             <a
-              href="https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
+              href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-cta"

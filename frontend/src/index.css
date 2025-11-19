@@ -111,5 +111,9 @@ code {
         border-right-color: inherit;
         border-top-color: inherit;
         border-bottom-color: inherit;
+        #emergent-badge {
+    display: none !important;
+}
+
     }
 }

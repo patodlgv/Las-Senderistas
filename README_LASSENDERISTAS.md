@@ -27,7 +27,7 @@ Sitio web completo para Las Senderistas, una comunidad de mujeres que hacen hiki
 
 ### Funcionalidades
 - ✅ Calendario interactivo con fechas de hikes
-- ✅ Botones de WhatsApp para inscripciones directas (+52 813 568 8611)
+- ✅ Botones de WhatsApp para inscripciones directas (+52 81 1917 6335)
 - ✅ Responsive design (móvil, tablet, desktop)
 - ✅ Logo oficial integrado
 - ✅ Diseño profesional siguiendo las design guidelines
@@ -54,7 +54,7 @@ Sitio web completo para Las Senderistas, una comunidad de mujeres que hacen hiki
 ## 📱 Contacto
 
 ### Información de Contacto
-- **WhatsApp Principal**: +52 813 568 8611
+- **WhatsApp Principal**: +52 811 917 6335
 - **Teléfono**: +52 811 917 6335
 - **Email**: patyfrizzi@yahoo.com.mx
 - **Instagram**: @lassenderistas

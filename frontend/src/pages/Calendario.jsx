@@ -28,7 +28,7 @@ const CalendarioPage = () => {
       if (hikesData[dateKey]) {
         const hike = hikesData[dateKey];
         const message = `Hola! quiero inscribirme al hike de ${hike.nombre} el ${format(date, "d 'de' MMMM", { locale: es })}`;
-        window.open(`https://wa.me/528135688611?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/528119176335?text=${encodeURIComponent(message)}`, '_blank');
       }
     }
   };
@@ -47,12 +47,12 @@ const CalendarioPage = () => {
   };
 
   const proximos = [
-    { fecha: '15 de Agosto', nombre: 'Cerro de la Silla', nivel: 'Intermedio-Avanzado' },
-    { fecha: '17 de Agosto', nombre: 'La Martha', nivel: 'Intermedio' },
-    { fecha: '22 de Agosto', nombre: 'Chipinque', nivel: 'Principiante' },
-    { fecha: '24 de Agosto', nombre: 'El Chupón', nivel: 'Principiante-Intermedio' },
-    { fecha: '29 de Agosto', nombre: 'Rinos', nivel: 'Avanzado' },
-    { fecha: '31 de Agosto', nombre: 'La Raya', nivel: 'Intermedio' }
+    { fecha: '20 de Noviembre', nombre: 'Rhinos', nivel: 'Intermedio-Avanzado' },
+    { fecha: '22 de Noviembre', nombre: 'Calabaceñas o Horcones', nivel: 'Intermedio' },
+    { fecha: '23 de Noviembre', nombre: 'Escaleras', nivel: 'Principiante-Inermedio' },
+    { fecha: '27 de Noviembre', nombre: 'Calabaceñas', nivel: 'Intermedio' },
+    { fecha: '29 de Noviembre', nombre: 'Observatorio Chipinque', nivel: 'Avanzado' },
+    { fecha: '30 de Noviembre', nombre: 'Rayita', nivel: 'Intermedio' }
   ];
 
   return (
@@ -124,7 +124,7 @@ const CalendarioPage = () => {
                       <div className="proximo-nivel">{hike.nivel}</div>
                     </div>
                     <a
-                      href={`https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20al%20hike%20de%20${encodeURIComponent(hike.nombre)}%20el%20${encodeURIComponent(hike.fecha)}`}
+                      href={`https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20al%20hike%20de%20${encodeURIComponent(hike.nombre)}%20el%20${encodeURIComponent(hike.fecha)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary-small"

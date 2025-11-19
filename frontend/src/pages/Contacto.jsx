@@ -36,7 +36,7 @@ const Contacto = () => {
 
     // Abrir WhatsApp con el mensaje
     const mensaje = `Hola! Soy ${formData.nombre}.\n\nCorreo: ${formData.correo}\n\nMensaje: ${formData.mensaje}`;
-    window.open(`https://wa.me/528135688611?text=${encodeURIComponent(mensaje)}`, '_blank');
+    window.open(`https://wa.me/528119176335?text=${encodeURIComponent(mensaje)}`, '_blank');
 
     // Limpiar formulario
     setFormData({ nombre: '', correo: '', mensaje: '' });
@@ -85,12 +85,12 @@ const Contacto = () => {
                   <h4 className="contact-method-title">WhatsApp (Preferido)</h4>
                   <p className="contact-method-text">La forma más rápida de inscribirte y resolver tus dudas</p>
                   <a
-                    href="https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
+                    href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-method-link"
                   >
-                    +52 813 568 8611
+                    +52 81 1917 6335
                   </a>
                 </div>
               </div>
@@ -240,7 +240,7 @@ const Contacto = () => {
               Escríbenos y te ayudaremos a elegir tu primer hike
             </p>
             <a
-              href="https://wa.me/528135688611?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
+              href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-cta"

@@ -549,7 +549,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('https://images.unsplash.com/photo-1568987241598-6155c31740f2');
+  background-image: url('frontend/public/Images/aniversario-senderistas.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

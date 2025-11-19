@@ -12,25 +12,26 @@ const Home = () => {
       nombre: 'Cerro de la Silla',
       descripcion: 'El ícono de Monterrey. Una experiencia desafiante con vistas panorámicas incomparables.',
       nivel: 'Intermedio-Avanzado',
-      imagen: '/Images/cerro-silla.jpg'
+      imagen: 'https://images.unsplash.com/photo-1651689160911-ab8f5c68854d?crop=entropy&cs=srgb&fm=jpg&q=85'
     },
     {
       nombre: 'La Martha',
       descripcion: 'Una ruta clásica con pendientes exigentes y vistas espectaculares de la ciudad.',
       nivel: 'Intermedio',
-      imagen: '/Images/las-senderistas-nieve.PNG',
+      imagen: '/images/la-martha-nevada.png'
     },
     {
-      nombre: 'El Chupón',
-      descripcion: 'Una ruta retadora con vistas impresionantes y tramos de ascenso que ponen a prueba tu condición.',
+      nombre: 'Sierra Negra',
+      descripcion: 'Expedición a 4,580 metros. Una aventura de alta montaña que te llevará al límite.',
       nivel: 'Avanzado',
-        imagen: '/Images/el-chupon.png'
+      imagen: '/images/sierra-negra.jpg'
     },
     {
-       nombre: 'Chipinque',
-       descripcion: 'Un clásico de Monterrey. Senderos seguros, vistas espectaculares y naturaleza perfecta para todos los niveles.',
-      nivel: 'Intermedio',
-        imagen: '/Images/chipinque-lasenderistas.jpg',
+      nombre: 'Aurora Boreal 2026',
+      descripcion: 'Viaje internacional especial para presenciar uno de los fenómenos más hermosos de la naturaleza. ¡AGOTADO!',
+      nivel: 'Todas',
+      imagen: '/images/aurora-boreal.webp',
+      soldOut: true
     }
   ];
 

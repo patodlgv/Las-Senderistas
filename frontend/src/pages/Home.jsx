@@ -1,10 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react'; // Importamos useRef
 import { Link } from 'react-router-dom';
 import { Mountain, Users, Shield, Calendar, MapPin, Heart } from 'lucide-react';
 
 const Home = () => {
+  const videoRef = useRef(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Forzar reproducción al cargar para asegurar autoplay
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Autoplay prevenido por el navegador:", error);
+      });
+    }
   }, []);
 
   const experiencias = [
@@ -12,40 +21,38 @@ const Home = () => {
       nombre: 'Cerro de la Silla',
       descripcion: 'El ícono de Monterrey. Una experiencia desafiante con vistas panorámicas incomparables.',
       nivel: 'Intermedio-Avanzado',
-      imagen: 'https://images.unsplash.com/photo-1651689160911-ab8f5c68854d?crop=entropy&cs=srgb&fm=jpg&q=85'
+      imagen: '/Images/cerro-silla.jpg'
     },
     {
       nombre: 'La Martha',
-      descripcion: 'Una ruta clásica con pendientes exigentes y vistas espectaculares de la ciudad.',
+      descripcion: 'Una ruta clásica con pendientes exigentes, nieve en invierno y vistas espectaculares de la ciudad.',
       nivel: 'Intermedio',
-      imagen: '/images/la-martha-nevada.png'
+      imagen: '/Images/la-martha-nevada.png'
     },
     {
       nombre: 'Peña de Bernal o Tepozteco',
-      descripcion: 'Aventura de abril 2026. Disfruta de la magia de los pueblos mágicos y rutas con energía única.',
+      descripcion: 'Abril 2026. Disfruta de la magia de los pueblos mágicos y rutas con energía única.',
       nivel: 'Principiante-Intermedio',
-      imagen: '/Images/tepozteco-home2.jpg' 
+      imagen: '/Images/Cerro-del-agujerado-G1.jpg' 
     },
     {
       nombre: 'Perú',
       descripcion: 'Mayo 2026. Una expedición internacional inolvidable recorriendo los senderos sagrados de los Incas.',
       nivel: 'Intermedio',
-      imagen: '/Images/peru-home.jpg' // TU PONES LA FOTO AQUI
+      imagen: '/Images/equipo-llevar.jpg' 
     },
     {
       nombre: 'Sierra Negra',
-      descripcion: 'Agosto 2026. Conquista el quinto pico más alto de México. Un reto de alta montaña.',
+      descripcion: 'Agosto 2026. Conquista el quinto pico más alto de México. Un reto de alta montaña a 4,580m.',
       nivel: 'Avanzado',
-      imagen: '/Images/sierra-negra.jpg' // Esta ya la tienes
+      imagen: '/Images/sierra-negra.jpg'
     },
-
     {
       nombre: 'Islandia',
       descripcion: 'Octubre 2026. Tierra de fuego y hielo. Una travesía épica entre glaciares y auroras boreales.',
       nivel: 'Todas',
-      imagen: '/Images/islandia-home2.jpg'
+      imagen: '/Images/aurora-boreal.webp'
     }
-    
   ];
 
   const testimonios = [
@@ -65,19 +72,19 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
       {/* Hero Section con Video de Fondo */}
       <section className="hero-section">
-        {/* El video va aquí. 'muted' es OBLIGATORIO para que arranque solo */}
         <video 
+          ref={videoRef}
           className="hero-video" 
           autoPlay 
           loop 
           muted 
-          playsInline
+          defaultMuted={true} /* CRUCIAL PARA REACT */
+          playsInline /* CRUCIAL PARA IPHONE */
         >
-          {/* Cambia 'nombre-de-tu-video.mp4' por el nombre real de tu archivo */}
-          <source src="/Videos/hero-final.mp4" type="video/mp4" />
+          {/* Asegúrate de que este nombre coincida con el video ligero que subiste */}
+          <source src="/Videos/video-home5.mp4" type="video/mp4" />
         </video>
 
         <div className="hero-overlay"></div>
@@ -88,18 +95,17 @@ const Home = () => {
             Una comunidad de mujeres que comparten la pasión por las montañas, la naturaleza y las nuevas experiencias
           </p>
           <div className="hero-buttons animated fadeIn delay-500ms">
-          <Link to="/calendario" className="btn-cta">
-  Ver Calendario de Hikes
-</Link>
-<a
-  href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme"
-  target="_blank"
-  rel="noopener noreferrer"
-  /* CAMBIO AQUÍ: Usa la nueva clase .btn-secondary-hero */
-  className="btn-secondary-hero"
->
-  Unirme a Las Senderistas
-</a>
+            <Link to="/calendario" className="btn-cta">
+              Ver Calendario de Hikes
+            </Link>
+            <a
+              href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary-hero"
+            >
+              Unirme a Las Senderistas
+            </a>
           </div>
         </div>
       </section>

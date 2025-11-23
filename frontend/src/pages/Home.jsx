@@ -27,7 +27,7 @@ const Home = () => {
       nombre: 'La Martha',
       descripcion: 'Una ruta clásica con pendientes exigentes, nieve en invierno y vistas espectaculares de la ciudad.',
       nivel: 'Intermedio',
-      imagen: '/Images/la-martha-nevada.png'
+     imagen: '/images/la-martha-nevada.png'g'
     },
     {
       nombre: 'Peña de Bernal o Tepozteco',

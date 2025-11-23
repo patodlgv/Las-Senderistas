@@ -84,7 +84,8 @@ const Home = () => {
           playsInline /* CRUCIAL PARA IPHONE */
         >
           {/* Asegúrate de que este nombre coincida con el video ligero que subiste */}
-          <source src="/Videos/video-home5.mp4" type="video/mp4" />
+        
+<source src="/Videos/hero-final-v2.mp4" type="video/mp4" />
         </video>
 
         <div className="hero-overlay"></div>

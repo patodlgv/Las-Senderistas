@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  // Detectar scroll para cambiar el diseño del navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Inicio', path: '/' },
@@ -19,7 +34,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="network-header">
+    <header className={`network-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-wrapper">
         <Link to="/" className="network-logo-container">
           <img 

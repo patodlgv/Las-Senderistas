@@ -21,18 +21,31 @@ const Home = () => {
       imagen: '/images/la-martha-nevada.png'
     },
     {
-      nombre: 'Sierra Negra',
-      descripcion: 'Expedición a 4,580 metros. Una aventura de alta montaña que te llevará al límite.',
-      nivel: 'Avanzado',
-      imagen: '/images/sierra-negra.jpg'
+      nombre: 'Peña de Bernal o Tepozteco',
+      descripcion: 'Aventura de abril 2026. Disfruta de la magia de los pueblos mágicos y rutas con energía única.',
+      nivel: 'Principiante-Intermedio',
+      imagen: '/Images/tepozteco-home2.jpg' 
     },
     {
-      nombre: 'Aurora Boreal 2026',
-      descripcion: 'Viaje internacional especial para presenciar uno de los fenómenos más hermosos de la naturaleza. ¡AGOTADO!',
+      nombre: 'Perú',
+      descripcion: 'Mayo 2026. Una expedición internacional inolvidable recorriendo los senderos sagrados de los Incas.',
+      nivel: 'Intermedio',
+      imagen: '/Images/peru-home.jpg' // TU PONES LA FOTO AQUI
+    },
+    {
+      nombre: 'Sierra Negra',
+      descripcion: 'Agosto 2026. Conquista el quinto pico más alto de México. Un reto de alta montaña.',
+      nivel: 'Avanzado',
+      imagen: '/Images/sierra-negra.jpg' // Esta ya la tienes
+    },
+
+    {
+      nombre: 'Islandia',
+      descripcion: 'Octubre 2026. Tierra de fuego y hielo. Una travesía épica entre glaciares y auroras boreales.',
       nivel: 'Todas',
-      imagen: '/images/aurora-boreal.webp',
-      soldOut: true
+      imagen: '/Images/islandia-home2.jpg'
     }
+    
   ];
 
   const testimonios = [
@@ -53,7 +66,20 @@ const Home = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
+      {/* Hero Section con Video de Fondo */}
       <section className="hero-section">
+        {/* El video va aquí. 'muted' es OBLIGATORIO para que arranque solo */}
+        <video 
+          className="hero-video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          {/* Cambia 'nombre-de-tu-video.mp4' por el nombre real de tu archivo */}
+          <source src="/Videos/video-home2.mp4" type="video/mp4" />
+        </video>
+
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1 className="hero-title animated fadeIn">Las Senderistas</h1>
@@ -62,17 +88,18 @@ const Home = () => {
             Una comunidad de mujeres que comparten la pasión por las montañas, la naturaleza y las nuevas experiencias
           </p>
           <div className="hero-buttons animated fadeIn delay-500ms">
-            <Link to="/calendario" className="btn-cta">
-              Ver Calendario de Hikes
-            </Link>
-            <a
-              href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme%20a%20este%20hike"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
-            >
-              Unirme a Las Senderistas
-            </a>
+          <Link to="/calendario" className="btn-cta">
+  Ver Calendario de Hikes
+</Link>
+<a
+  href="https://wa.me/528119176335?text=Hola!%20quiero%20inscribirme"
+  target="_blank"
+  rel="noopener noreferrer"
+  /* CAMBIO AQUÍ: Usa la nueva clase .btn-secondary-hero */
+  className="btn-secondary-hero"
+>
+  Unirme a Las Senderistas
+</a>
           </div>
         </div>
       </section>

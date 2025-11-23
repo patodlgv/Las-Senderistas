@@ -77,7 +77,7 @@ const Home = () => {
           playsInline
         >
           {/* Cambia 'nombre-de-tu-video.mp4' por el nombre real de tu archivo */}
-          <source src="/Videos/video-home5.mp4" type="video/mp4" />
+          <source src="/Videos/hero-final.mp4" type="video/mp4" />
         </video>
 
         <div className="hero-overlay"></div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'; // Importamos useRef
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Mountain, Users, Shield, Calendar, MapPin, Heart } from 'lucide-react';
 
@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    // Forzar reproducción al cargar para asegurar autoplay
+    // Intentar reproducir automáticamente al cargar
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
         console.log("Autoplay prevenido por el navegador:", error);
@@ -80,12 +80,11 @@ const Home = () => {
           autoPlay 
           loop 
           muted 
-          defaultMuted={true} /* CRUCIAL PARA REACT */
-          playsInline /* CRUCIAL PARA IPHONE */
+          defaultMuted={true}
+          playsInline
         >
-          {/* Asegúrate de que este nombre coincida con el video ligero que subiste */}
-          {/* Cambiamos video-home5.mp4 por uno que ya tenías antes para probar */}
-<source src="/Videos/patagonia-senderistas.mp4" type="video/mp4" />
+          {/* USAMOS EL VIDEO QUE SÍ EXISTE */}
+          <source src="/Videos/patagonia-senderistas.mp4" type="video/mp4" />
         </video>
 
         <div className="hero-overlay"></div>

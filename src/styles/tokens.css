@@ -1,0 +1,63 @@
+/* ============================================================
+   Design Tokens — Arquitectura de 3 capas (knowledge0base)
+   Nivel 1: primitivos · Nivel 2: semánticos · Nivel 3: componente
+   Skin "Las Senderistas" — teal montaña sobre fondo cinemático.
+   ============================================================ */
+
+:root {
+  /* --- Nivel 1: PRIMITIVOS (valores crudos) --- */
+  /* Neutros */
+  --ink-950: #0a1016;
+  --ink-900: #0e1620;
+  --ink-700: #243441;
+  --white: #ffffff;
+  --mist-100: #eef4f6;
+
+  /* Acento único: teal / turquesa (marca) */
+  --teal-600: #157f9d;
+  --teal-500: #1c9cc0;
+  --teal-400: #2fb4d6;
+  --teal-300: #6fcce6;
+
+  /* Espaciado — base 8 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Tipografía — familias y escala modular (ratio 1.25) */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-script: "Dancing Script", "Brush Script MT", cursive;
+  --font-body: "Inter", system-ui, sans-serif;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --text-4xl: 3.052rem;
+
+  /* Forma */
+  --radius-full: 9999px;
+
+  /* Curvas de animación (hovers "de calidad") */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Nivel 2: SEMÁNTICOS / ALIAS (intención) --- */
+  --color-bg: var(--ink-950);
+  --color-text: var(--white);
+  --color-text-muted: rgba(255, 255, 255, 0.78);
+  --color-brand: var(--teal-500);
+  --color-brand-hover: var(--teal-400);
+  --color-accent: var(--teal-400);
+  --color-focus-ring: var(--teal-300);
+
+  --font-heading: var(--font-display);
+  --font-paragraph: var(--font-body);
+}

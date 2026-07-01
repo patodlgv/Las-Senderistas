@@ -1,0 +1,14 @@
+# Cloudflare Pages — cache largo e inmutable para assets versionados/estáticos.
+# Los frames usan ?v= para cache-busting, así que es seguro cachearlos "immutable".
+
+/frames/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/frames-mobile/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/media/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

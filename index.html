@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Las Senderistas — Comunidad de mujeres que aman la naturaleza, la aventura y las experiencias que transforman. Más de 300 senderistas."
+    />
+    <title>Las Senderistas · Comunidad de Hike</title>
+
+    <!-- Tipografía: Playfair Display (headline serif + acento itálico) +
+         Inter (cuerpo/nav) + Dancing Script (logo y acento manuscrito). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="hero" id="hero" aria-label="Las Senderistas — experiencia de scroll">
+      <!-- Canvas: secuencia de frames con object-fit: cover -->
+      <canvas class="hero__canvas" id="hero-canvas"></canvas>
+
+      <!-- Loader: fondo blanco, frase de Las Senderistas y barrita -->
+      <div class="loader" id="loader" role="status" aria-live="polite">
+        <p class="loader__quote" id="loader-quote">Nunca caminas sola.</p>
+        <div class="loader__bar"><span class="loader__fill" id="loader-fill"></span></div>
+        <div class="loader__pct" id="loader-pct">0%</div>
+      </div>
+
+      <!-- NAV persistente (se mantiene a través de las escenas) -->
+      <header class="nav">
+        <a class="nav__logo" href="#hero" aria-label="Las Senderistas, inicio">
+          <span class="nav__logo-name">Las Senderistas</span>
+          <span class="nav__logo-tag">Comunidad de Hike <span class="heart" aria-hidden="true">♥</span></span>
+        </a>
+
+        <nav class="nav__links" aria-label="Principal">
+          <a href="#hero" class="nav__link is-active">Inicio</a>
+          <a href="#sobre-nosotros" class="nav__link">Sobre Nosotras</a>
+          <a href="#rutas" class="nav__link">Rutas</a>
+          <a href="#comunidad" class="nav__link">Comunidad</a>
+          <a href="#faq" class="nav__link">Preguntas frecuentes</a>
+          <a href="#contacto" class="nav__link">Contacto</a>
+        </nav>
+
+        <a href="#contacto" class="btn btn--pill">
+          Únete a la Familia <span class="heart" aria-hidden="true">♥</span>
+        </a>
+
+        <!-- Botón hamburguesa (móvil) -->
+        <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+      <!-- Menú móvil desplegable -->
+      <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
+        <nav class="nav__mobile-links" aria-label="Menú móvil">
+          <a href="#hero" class="nav__mobile-link">Inicio</a>
+          <a href="#sobre-nosotros" class="nav__mobile-link">Sobre Nosotras</a>
+          <a href="#rutas" class="nav__mobile-link">Rutas</a>
+          <a href="#comunidad" class="nav__mobile-link">Comunidad</a>
+          <a href="#faq" class="nav__mobile-link">Preguntas frecuentes</a>
+          <a href="#contacto" class="nav__mobile-link">Contacto</a>
+        </nav>
+        <a href="#contacto" class="btn btn--primary nav__mobile-cta">
+          Únete a la Familia <span class="heart" aria-hidden="true">♥</span>
+        </a>
+      </div>
+
+      <!-- ESCENA 1 · HERO (visible al entrar, se desvanece al hacer scroll) -->
+      <div class="scene scene--hero" id="scene-hero">
+        <div class="hero__content">
+          <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span>Mujeres. Montañas. Conexión.</p>
+
+          <h1 class="hero__title">
+            Caminamos juntas, llegamos
+            <span class="accent-script">más lejos.<span class="heart heart--inline" aria-hidden="true">♥</span></span>
+          </h1>
+
+          <p class="hero__subtitle">
+            Supérate, crea recuerdos inolvidables y únete a nuestra familia de
+            más de 300 senderistas.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#contacto" class="btn btn--primary">
+              Únete a la Familia <span class="heart" aria-hidden="true">♥</span>
+            </a>
+            <a href="#rutas" class="btn btn--ghost">
+              Explorar Rutas
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="scroll-hint" aria-hidden="true">
+          <svg class="scroll-hint__mouse" viewBox="0 0 26 40">
+            <rect x="1" y="1" width="24" height="38" rx="12" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle class="scroll-hint__wheel" cx="13" cy="11" r="2.4" fill="currentColor" />
+          </svg>
+          <svg class="scroll-hint__arrow" viewBox="0 0 24 12">
+            <path d="M3 3l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- ESCENA 2 · ISLANDIA (entra a media página y se desvanece) -->
+      <div class="scene scene--destino" id="scene-islandia" aria-hidden="true">
+        <div class="destino">
+          <div class="destino__head">
+            <p class="destino__eyebrow"><span class="destino__eyebrow-num">01</span> · Islandia</p>
+            <span class="destino__eyebrow-line" aria-hidden="true"></span>
+
+            <h2 class="destino__title">
+              Tierra de fuego <br />y <span class="accent-italic">hielo.</span>
+            </h2>
+
+            <p class="destino__lead">
+              Tierras de fuego y hielo, donde los paisajes volcánicos se encuentran
+              con glaciares eternos. Cada paso aquí te recuerda que la naturaleza
+              no tiene límites, y tampoco los tienes tú.
+            </p>
+          </div>
+
+          <ul class="features">
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="7" cy="6" r="1.6" />
+                <path d="M3 20l5.5-9 3.5 5 2.5-3.5L21 20z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              </svg>
+              <h3 class="feature__title">Paisajes únicos</h3>
+              <p class="feature__text">Volcanes, glaciares y aguas termales que parecen de otro mundo.</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="6" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="18" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <path d="M8 6h6a3 3 0 010 6H10a3 3 0 000 6h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+              <h3 class="feature__title">Rutas guiadas</h3>
+              <p class="feature__text">Itinerarios diseñados para explorar lo mejor de Islandia.</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="17.5" cy="9.5" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5M15 19c0-2 1.2-3.6 4-3.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+              <h3 class="feature__title">Comunidad</h3>
+              <p class="feature__text">Mujeres que comparten la pasión por la aventura y el crecimiento.</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="12" cy="13.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <path d="M8.5 7l1.4-2.2h4.2L15.5 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              </svg>
+              <h3 class="feature__title">Experiencias reales</h3>
+              <p class="feature__text">Momentos auténticos que se quedan contigo para siempre.</p>
+            </li>
+          </ul>
+
+          <a href="#rutas" class="btn btn--ghost destino__cta">
+            Descubrir la expedición
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <div class="destino__foot">
+            <span class="destino__rule" aria-hidden="true"></span>
+            <blockquote class="destino__quote">
+              No se trata del destino, sino de todo lo que
+              <span class="accent-italic">te transforma</span> en el camino.
+            </blockquote>
+            <p class="destino__loc">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 22s7-6.3 7-12a7 7 0 10-14 0c0 5.7 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+              </svg>
+              Islandia
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ESCENA 3 · MACHU PICCHU (entra sobre el tramo de Machu Picchu y se desvanece) -->
+      <div class="scene scene--destino" id="scene-machupicchu" aria-hidden="true">
+        <div class="destino">
+          <div class="destino__head">
+            <p class="destino__eyebrow"><span class="destino__eyebrow-num">02</span> · Machu Picchu</p>
+            <span class="destino__eyebrow-line" aria-hidden="true"></span>
+
+            <h2 class="destino__title">
+              Historias que dejan huella,<br />
+              <span class="accent-italic">paisajes que inspiran.</span>
+            </h2>
+
+            <p class="destino__lead">
+              Machu Picchu nos recuerda la grandeza de lo que se construye con
+              propósito, con conexión y en comunidad.
+            </p>
+          </div>
+
+          <ul class="features features--3">
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="12" cy="13.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <path d="M8.5 7l1.4-2.2h4.2L15.5 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              </svg>
+              <h3 class="feature__title">Experiencias auténticas</h3>
+              <p class="feature__text">Momentos que se convierten en recuerdos para toda la vida.</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="17.5" cy="9.5" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5M15 19c0-2 1.2-3.6 4-3.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+              <h3 class="feature__title">Comunidad que inspira</h3>
+              <p class="feature__text">Mujeres que se apoyan, crecen y conquistan juntas cada camino.</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="7" cy="6" r="1.6" />
+                <path d="M3 20l5.5-9 3.5 5 2.5-3.5L21 20z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              </svg>
+              <h3 class="feature__title">Destinos extraordinarios</h3>
+              <p class="feature__text">Lugares que te retan y te transforman.</p>
+            </li>
+          </ul>
+
+          <a href="#rutas" class="btn btn--ghost destino__cta">
+            Conoce más sobre esta expedición
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ESCENA 3 · PICO DE ORIZABA (panel a la izquierda) -->
+      <div class="scene scene--orizaba" id="scene-orizaba" aria-hidden="true">
+        <div class="destino destino--left">
+          <div class="destino__head">
+            <p class="destino__eyebrow"><span class="destino__eyebrow-num">03</span> · Pico de Orizaba</p>
+            <span class="destino__eyebrow-line" aria-hidden="true"></span>
+
+            <h2 class="destino__title">
+              Cada cima es una<br />
+              <span class="accent-italic">promesa.</span>
+            </h2>
+
+            <p class="destino__lead">
+              Pico de Orizaba representa el momento en que el esfuerzo se convierte
+              en orgullo. Una experiencia que desafía, inspira y demuestra que las
+              mejores vistas siempre llegan después del mayor compromiso.
+            </p>
+          </div>
+
+          <ul class="features features--stat features--compact">
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 20l6-10 4 5.5L15 11l7 9z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              </svg>
+              <h3 class="feature__title">Altitud</h3>
+              <p class="feature__value">5,636 m</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h12l3 5.2-9 12.8L3 8.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="M3 8.2h18M9 3 7.6 8.2M15 3l1.4 5.2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
+              </svg>
+              <h3 class="feature__title">Expedición</h3>
+              <p class="feature__value">Premium</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 20l9-13 9 13z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="M12 7V3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                <path d="M12 3.4h4l-1.1 1.3L16 6h-4z" fill="currentColor" />
+              </svg>
+              <h3 class="feature__title">Nivel</h3>
+              <p class="feature__value">Avanzado</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="7" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="6" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="18" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M8 19c0-3 1.8-4.8 4-4.8s4 1.8 4 4.8M2.5 18c0-2.3 1.4-3.8 3.5-3.8M21.5 18c0-2.3-1.4-3.8-3.5-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+              <h3 class="feature__title">Comunidad</h3>
+              <p class="feature__value">Las Senderistas</p>
+            </li>
+          </ul>
+
+          <a href="#rutas" class="btn btn--ghost destino__cta">
+            Descubrir la experiencia
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ESCENA 4 · SIERRA NEGRA (último destino; panel a la izquierda) -->
+      <div class="scene scene--orizaba" id="scene-sierra" aria-hidden="true">
+        <div class="destino destino--left">
+          <div class="destino__head">
+            <p class="destino__eyebrow"><span class="destino__eyebrow-num">04</span> · Sierra Negra</p>
+            <span class="destino__eyebrow-line" aria-hidden="true"></span>
+
+            <h2 class="destino__title">
+              Donde la tierra<br />
+              toca el <span class="accent-italic">cielo.</span>
+            </h2>
+
+            <p class="destino__lead">
+              Sierra Negra, hogar del observatorio más alto de México, es la cima
+              donde el silencio y las estrellas se vuelven inolvidables. Una
+              expedición para quienes buscan llegar más allá de sus límites.
+            </p>
+          </div>
+
+          <ul class="features features--stat features--compact">
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 20l6-10 4 5.5L15 11l7 9z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              </svg>
+              <h3 class="feature__title">Altitud</h3>
+              <p class="feature__value">4,640 m</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h12l3 5.2-9 12.8L3 8.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="M3 8.2h18M9 3 7.6 8.2M15 3l1.4 5.2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
+              </svg>
+              <h3 class="feature__title">Expedición</h3>
+              <p class="feature__value">Premium</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 20l9-13 9 13z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="M12 7V3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                <path d="M12 3.4h4l-1.1 1.3L16 6h-4z" fill="currentColor" />
+              </svg>
+              <h3 class="feature__title">Nivel</h3>
+              <p class="feature__value">Intermedio</p>
+            </li>
+            <li class="feature">
+              <svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="7" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="6" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="18" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M8 19c0-3 1.8-4.8 4-4.8s4 1.8 4 4.8M2.5 18c0-2.3 1.4-3.8 3.5-3.8M21.5 18c0-2.3-1.4-3.8-3.5-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+              <h3 class="feature__title">Comunidad</h3>
+              <p class="feature__value">Las Senderistas</p>
+            </li>
+          </ul>
+
+          <a href="#rutas" class="btn btn--ghost destino__cta">
+            Descubrir la experiencia
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Capa de transición: al final del scroll, el video se disuelve a
+           blanco poco a poco (manejado por scroll en main.js) y empalma
+           sin corte con la sección blanca de abajo. -->
+      <div class="hero__whiteout" id="hero-whiteout" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============================================================
+         SOBRE NOSOTROS (aparece debajo del hero al terminar el scroll)
+         Réplica de la sección de destinos. Fotos = placeholders (sin
+         caption); el usuario indicará después qué foto/video va en cada una.
+         ============================================================ -->
+    <section class="about" id="sobre-nosotros" aria-label="Sobre nosotros">
+      <div class="about__inner">
+        <!-- Columna izquierda: intro -->
+        <div class="about__intro">
+          <p class="about__eyebrow">
+            <span class="about__eyebrow-line" aria-hidden="true"></span>Sobre nosotras
+          </p>
+
+          <h2 class="about__title">
+            Momentos que<br />se quedan
+            <span class="accent-italic">contigo.</span>
+          </h2>
+
+          <!-- Bloque clicable: ocupa el lugar del párrafo y abre la carta grande -->
+          <button class="about-open" type="button" id="about-open" aria-haspopup="dialog" aria-controls="about-modal">
+            <span class="about-open__text">
+              Cada expedición es una historia única.
+              <span class="about-open__cta">Toca para ver sobre nosotras</span>
+            </span>
+            <span class="about-open__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+          </button>
+
+          <a href="#rutas" class="btn btn--outline about__cta">
+            Ver todos los destinos
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Columna derecha: carrusel de tarjetas (placeholders, sin texto) -->
+        <div class="about__carousel">
+          <button class="about__arrow about__arrow--prev" type="button" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <ul class="about__track" id="about-track">
+            <li class="about-card">
+              <div class="about-card__media has-media">
+                <img src="/media/aniversario-senderistas.jpg" alt="Aniversario de Las Senderistas — la comunidad reunida" loading="lazy" />
+              </div>
+            </li>
+            <li class="about-card">
+              <div class="about-card__media has-media">
+                <video class="about-card__video" muted loop playsinline preload="metadata">
+                  <source src="/media/reel-5.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </li>
+            <li class="about-card">
+              <div class="about-card__media has-media">
+                <video class="about-card__video" muted loop playsinline preload="metadata">
+                  <source src="/media/video-taza.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </li>
+            <li class="about-card">
+              <div class="about-card__media has-media">
+                <video class="about-card__video" muted loop playsinline preload="metadata">
+                  <source src="/media/reel-4.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </li>
+            <li class="about-card">
+              <div class="about-card__media has-media">
+                <video class="about-card__video" muted loop playsinline preload="metadata">
+                  <source src="/media/reel-3.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </li>
+            <li class="about-card">
+              <div class="about-card__media has-media">
+                <video class="about-card__video" muted loop playsinline preload="metadata">
+                  <source src="/media/patagonia-senderistas.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </li>
+          </ul>
+
+          <button class="about__arrow about__arrow--next" type="button" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Franja de pilares -->
+      <ul class="about__features">
+        <li class="about-feature">
+          <svg class="about-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M15.5 8.5l-2 5-5 2 2-5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+          </svg>
+          <h3 class="about-feature__title">Rutas cuidadosamente seleccionadas</h3>
+          <p class="about-feature__text">Exploramos lugares extraordinarios para brindarte experiencias auténticas.</p>
+        </li>
+        <li class="about-feature">
+          <svg class="about-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <circle cx="6" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <circle cx="18" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M7.5 19c0-3 2-4.8 4.5-4.8S16.5 16 16.5 19M2.5 18c0-2.4 1.4-3.9 3.5-3.9M21.5 18c0-2.4-1.4-3.9-3.5-3.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+          <h3 class="about-feature__title">Guías expertos</h3>
+          <p class="about-feature__text">Acompañamiento profesional en cada paso del camino.</p>
+        </li>
+        <li class="about-feature">
+          <svg class="about-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="7" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <circle cx="12" cy="13.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M8.5 7l1.4-2.2h4.2L15.5 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+          </svg>
+          <h3 class="about-feature__title">Experiencias auténticas</h3>
+          <p class="about-feature__text">Conexión real con la naturaleza y las comunidades locales.</p>
+        </li>
+        <li class="about-feature">
+          <svg class="about-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21c0-6 0-9 7-12 0 7-2 11-7 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+            <path d="M12 21c-4-1-7-4-7-9 5 1 7 3 7 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+          </svg>
+          <h3 class="about-feature__title">Turismo responsable</h3>
+          <p class="about-feature__text">Cuidamos cada destino para que siga inspirando a futuras generaciones.</p>
+        </li>
+      </ul>
+
+      <!-- Carta grande "Sobre nosotras" (modal) -->
+      <div class="about-modal" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title" aria-hidden="true">
+        <div class="about-modal__backdrop" data-close></div>
+        <div class="about-modal__card" role="document">
+          <button class="about-modal__close" type="button" data-close aria-label="Cerrar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+          </button>
+
+          <div class="about-modal__scroll">
+            <p class="about-modal__eyebrow">Sobre nosotras</p>
+            <h3 class="about-modal__title" id="about-modal-title">
+              Somos <span class="accent-italic">Las Senderistas.</span>
+            </h3>
+
+            <p class="about-modal__lead">
+              Un club de hike y viajes hecho por y para mujeres en Monterrey.
+              Nacimos de una idea simple: que ninguna mujer tenga que quedarse
+              con las ganas de conocer la montaña por miedo a hacerlo sola.
+            </p>
+
+            <p>
+              Lo que empezó como un grupo pequeño hoy es una <strong>familia de
+              más de 18,000 mujeres</strong> que se acompañan, se cuidan y se
+              animan a llegar más lejos. Cada amanecer en la sierra, cada cumbre
+              y cada viaje son parte de una misma historia: la de mujeres que
+              descubren de lo que son capaces cuando caminan juntas.
+            </p>
+
+            <p>
+              Creemos que la montaña no se trata solo de llegar a la cima, sino
+              de todo lo que te transforma en el camino: la confianza que ganas,
+              las amigas que haces y la versión de ti que regresa distinta a casa.
+            </p>
+
+            <h4 class="about-modal__subtitle">Lo que nos mueve</h4>
+            <ul class="about-modal__values">
+              <li>
+                <strong>Seguridad.</strong> Nunca caminas sola. Guías con
+                experiencia, rutas planificadas y grupos pequeños por nivel para
+                que vivas la aventura con tranquilidad.
+              </li>
+              <li>
+                <strong>Comunidad.</strong> Un espacio entre mujeres donde todas
+                caben: principiantes y experimentadas, de todas las edades.
+              </li>
+              <li>
+                <strong>Experiencias.</strong> Hikes locales cada semana y viajes
+                que te llevan de las montañas de Monterrey al mundo entero.
+              </li>
+              <li>
+                <strong>Bienestar.</strong> Naturaleza para el cuerpo y para la
+                mente: respiras, te desconectas y vuelves a ti.
+              </li>
+            </ul>
+
+            <p class="about-modal__closing">
+              No necesitas experiencia. Solo las ganas de empezar. Aquí te
+              esperamos para escribir, juntas, tu próxima aventura.
+            </p>
+
+            <a class="btn btn--primary about-modal__btn" href="https://wa.me/528119176335?text=%C2%A1Hola%20Las%20Senderistas!%20Quiero%20saber%20m%C3%A1s%20sobre%20el%20club." target="_blank" rel="noopener">
+              Quiero unirme <span class="heart" aria-hidden="true">♥</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RUTAS — mapa de Monterrey con pines clicables por montaña
+         ============================================================ -->
+    <section class="rutas" id="rutas" aria-label="Nuestras rutas">
+      <div class="rutas__inner">
+        <!-- Intro (izquierda) -->
+        <div class="rutas__intro">
+          <p class="rutas__eyebrow">
+            <span class="rutas__eyebrow-line" aria-hidden="true"></span>Nuestras rutas
+          </p>
+
+          <h2 class="rutas__title">
+            Explora.<br />Conecta.<br />
+            <span class="accent-italic">Trasciende.</span>
+          </h2>
+
+          <p class="rutas__lead">
+            Descubre las montañas más increíbles de Monterrey y elige tu próxima
+            aventura. Cada ruta tiene una historia que espera por ti.
+          </p>
+
+          <ul class="rutas__features">
+            <li class="rutas-feature">
+              <svg class="rutas-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 19l6-10 4 6 2-3 6 7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              </svg>
+              <div>
+                <h3 class="rutas-feature__title">Rutas para todos</h3>
+                <p class="rutas-feature__text">Desde principiantes hasta avanzadas.</p>
+              </div>
+            </li>
+            <li class="rutas-feature">
+              <svg class="rutas-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="6" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="18" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M7.5 19c0-3 2-4.8 4.5-4.8S16.5 16 16.5 19M2.5 18c0-2.4 1.4-3.9 3.5-3.9M21.5 18c0-2.4-1.4-3.9-3.5-3.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+              <div>
+                <h3 class="rutas-feature__title">Comunidad</h3>
+                <p class="rutas-feature__text">Caminamos juntas, crecemos juntas.</p>
+              </div>
+            </li>
+            <li class="rutas-feature">
+              <svg class="rutas-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="12" cy="13.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M8.5 7l1.4-2.2h4.2L15.5 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+              </svg>
+              <div>
+                <h3 class="rutas-feature__title">Experiencias reales</h3>
+                <p class="rutas-feature__text">Historias de mujeres que ya vivieron la aventura.</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#contacto" class="btn btn--outline rutas__cta">
+            Únete a la aventura
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+
+          <!-- Panel de detalle: aparece sobre esta columna al picar un pin -->
+          <div class="rutas__detail" id="rutas-detail" aria-hidden="true" aria-live="polite"></div>
+        </div>
+
+        <!-- Mapa (derecha) -->
+        <div class="rutas__mapwrap">
+          <div class="rutas__filters" role="group" aria-label="Filtrar por dificultad">
+            <span class="rutas__filters-label">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              Dificultad
+            </span>
+            <button class="rutas-chip is-active" type="button" data-level="todas">Todas</button>
+            <button class="rutas-chip" type="button" data-level="facil">Fácil</button>
+            <button class="rutas-chip" type="button" data-level="moderada">Moderada</button>
+            <button class="rutas-chip" type="button" data-level="avanzada">Avanzada</button>
+          </div>
+
+          <div class="rutas__map" id="rutas-map" data-lenis-prevent role="application" aria-label="Mapa mundial de rutas y destinos"></div>
+
+          <div class="rutas__legend" aria-hidden="true">
+            <span class="rutas__legend-item"><span class="rutas__legend-dot rutas__legend-dot--local"></span>Rutas locales · Monterrey</span>
+            <span class="rutas__legend-item"><span class="rutas__legend-dot rutas__legend-dot--mundo"></span>Destinos del mundo</span>
+            <span class="rutas__legend-hint">Toca un pin para ver más</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         COMUNIDAD — feed de Instagram (@lassenderistas), últimos posts
+         ============================================================ -->
+    <section class="comunidad" id="comunidad" aria-label="Comunidad en Instagram">
+      <div class="comunidad__head">
+        <p class="comunidad__eyebrow">
+          <span class="comunidad__eyebrow-line" aria-hidden="true"></span>Comunidad
+        </p>
+        <h2 class="comunidad__title">
+          Una <span class="accent-italic">familia</span> de más de
+          18,000 senderistas.
+        </h2>
+        <p class="comunidad__lead">
+          Cada semana compartimos nuevas aventuras en Instagram. Síguenos y sé
+          parte de la historia.
+        </p>
+        <a class="btn btn--ig" href="https://www.instagram.com/lassenderistas/" target="_blank" rel="noopener">
+          <svg class="btn__ig" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" />
+          </svg>
+          @lassenderistas
+        </a>
+      </div>
+
+      <ul class="ig-feed" id="ig-feed" aria-label="Últimas publicaciones de Instagram"></ul>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIOS — carrusel con animación GSAP (relleno tipo "vaso")
+         ============================================================ -->
+    <section class="tst" id="testimonios" aria-label="Testimonios">
+      <div class="tst__head">
+        <p class="tst__eyebrow">
+          <span class="tst__eyebrow-line" aria-hidden="true"></span>Testimonios
+        </p>
+        <h2 class="tst__title">
+          Historias que <span class="accent-italic">nos inspiran.</span>
+        </h2>
+      </div>
+
+      <div class="tst__viewport">
+        <ul class="tst__track" id="tst-track"></ul>
+      </div>
+
+      <div class="tst__nav">
+        <button class="tst__arrow" type="button" data-dir="-1" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="tst__arrow" type="button" data-dir="1" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PREGUNTAS FRECUENTES — categorías + acordeón (fondo blanco)
+         ============================================================ -->
+    <section class="faq" id="faq" aria-label="Preguntas frecuentes">
+      <div class="faq__wrap">
+        <div class="faq__head">
+          <p class="faq__eyebrow">
+            <span class="faq__eyebrow-line" aria-hidden="true"></span>Preguntas frecuentes
+          </p>
+          <h2 class="faq__title">
+            Todo lo que necesitas saber,<br />
+            <span class="accent-italic">en un solo lugar.</span>
+          </h2>
+        </div>
+
+        <div class="faq__panel">
+          <!-- Izquierda: categorías (las llena faq.js) -->
+          <div class="faq__cats" id="faq-cats" role="tablist" aria-label="Categorías"></div>
+          <!-- Derecha: acordeón (lo llena faq.js) -->
+          <div class="faq__acc" id="faq-acc"></div>
+        </div>
+
+        <div class="faq__helper">
+          <span class="faq__helper-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="faq__helper-text">
+            <strong>¿No encuentras lo que buscas?</strong>
+            <span>Nuestro equipo está para ayudarte.</span>
+          </div>
+          <a class="faq__helper-link" href="#contacto">
+            Escríbenos
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACTO — formulario que envía el mensaje por WhatsApp
+         ============================================================ -->
+    <section class="contacto" id="contacto" aria-label="Contacto">
+      <div class="contacto__grid">
+        <!-- Col 1 · Info -->
+        <div class="contacto__info">
+          <p class="contacto__eyebrow">
+            <span class="contacto__eyebrow-line" aria-hidden="true"></span>Contacto
+          </p>
+          <h2 class="contacto__title">
+            Hablemos.<br />Estamos aquí
+            <span class="accent-italic">para ti.</span>
+            <span class="heart heart--inline" aria-hidden="true">♥</span>
+          </h2>
+          <p class="contacto__lead">
+            ¿Tienes dudas, quieres unirte a una aventura o colaborar con Las
+            Senderistas? Escríbenos, estaremos felices de leerte.
+          </p>
+
+          <ul class="contacto__channels">
+            <li>
+              <a class="contacto-ch" href="https://www.instagram.com/lassenderistas/" target="_blank" rel="noopener">
+                <span class="contacto-ch__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+                </span>
+                <span class="contacto-ch__body">
+                  <span class="contacto-ch__title">Instagram</span>
+                  <span class="contacto-ch__value">@lassenderistas</span>
+                  <span class="contacto-ch__sub">Respondemos por DM</span>
+                </span>
+                <svg class="contacto-ch__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="contacto-ch" href="https://wa.me/528119176335?text=%C2%A1Hola%20Las%20Senderistas!%20Tengo%20una%20pregunta." target="_blank" rel="noopener">
+                <span class="contacto-ch__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 00-7.3 12.8L3.5 20.5l4.4-1.1A8.5 8.5 0 1012 3.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.2 8.4c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 00-.7.35c-.25.27-.9.86-.9 2.1s.92 2.44 1.05 2.6c.13.18 1.8 2.85 4.45 3.9 2.2.87 2.65.7 3.13.65.48-.04 1.54-.62 1.76-1.23.22-.6.22-1.12.15-1.23-.06-.1-.24-.17-.5-.3z" fill="currentColor"/></svg>
+                </span>
+                <span class="contacto-ch__body">
+                  <span class="contacto-ch__title">WhatsApp</span>
+                  <span class="contacto-ch__value">+52 81 1917 6335</span>
+                  <span class="contacto-ch__sub">Lun a Vie de 9:00 a 18:00</span>
+                </span>
+                <svg class="contacto-ch__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="contacto-ch" href="mailto:patyfrizzi@yahoo.com.mx">
+                <span class="contacto-ch__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="contacto-ch__body">
+                  <span class="contacto-ch__title">Correo</span>
+                  <span class="contacto-ch__value">patyfrizzi@yahoo.com.mx</span>
+                  <span class="contacto-ch__sub">Te responderemos pronto</span>
+                </span>
+                <svg class="contacto-ch__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="contacto-ch" href="https://www.google.com/maps/search/Monterrey+Nuevo+Leon" target="_blank" rel="noopener">
+                <span class="contacto-ch__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.3 7-12a7 7 0 10-14 0c0 5.7 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+                </span>
+                <span class="contacto-ch__body">
+                  <span class="contacto-ch__title">Ubicación</span>
+                  <span class="contacto-ch__value">Monterrey, N.L., México</span>
+                  <span class="contacto-ch__sub">Nuestras aventuras comienzan aquí</span>
+                </span>
+                <svg class="contacto-ch__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+          </ul>
+
+          <div class="contacto__collab">
+            <span class="contacto__collab-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 19c0-3 1.8-4.8 4-4.8s4 1.8 4 4.8M2.5 18c0-2.3 1.4-3.8 3.5-3.8M21.5 18c0-2.3-1.4-3.8-3.5-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <h3 class="contacto__collab-title">¿Quieres colaborar con nosotras?</h3>
+              <p class="contacto__collab-text">Nos encantan las alianzas que inspiran y suman.</p>
+              <a class="contacto__collab-link" href="https://wa.me/528119176335?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20colaborar%20con%20Las%20Senderistas." target="_blank" rel="noopener">
+                Conoce más sobre colaboraciones
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2 · Formulario -->
+        <div class="contacto__formcol">
+          <form class="contacto__form" id="contacto-form" novalidate>
+            <p class="contacto__form-eyebrow">Escríbenos</p>
+            <h3 class="contacto__form-title">Cuéntanos en qué podemos ayudarte.</h3>
+
+            <div class="contacto__field">
+              <input type="text" name="nombre" required placeholder="Nombre completo" autocomplete="name" />
+            </div>
+            <div class="contacto__field">
+              <input type="email" name="correo" required placeholder="Correo electrónico" autocomplete="email" />
+            </div>
+            <div class="contacto__field">
+              <input type="text" name="asunto" placeholder="Asunto" />
+            </div>
+            <div class="contacto__field">
+              <textarea name="mensaje" required rows="5" placeholder="Cuéntanos tu mensaje..."></textarea>
+            </div>
+
+            <div class="contacto__formrow">
+              <label class="contacto__file">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11l-8.5 8.5a5 5 0 01-7-7L14 4a3.5 3.5 0 015 5l-8.5 8.5a2 2 0 01-3-3L15 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="contacto__file-name">Adjuntar archivo (opcional)</span>
+                <input type="file" id="contacto-file" hidden />
+              </label>
+              <span class="contacto__filemax">Máx. 10 MB</span>
+            </div>
+
+            <button type="submit" class="btn btn--primary contacto__submit">
+              Enviar mensaje
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <p class="contacto__privacy">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              Tus datos están protegidos y nunca los compartimos.
+            </p>
+          </form>
+
+          <ul class="contacto__mini">
+            <li class="contacto-mini">
+              <svg class="contacto-mini__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19l6-10 4 6 2-3 6 7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              <h4 class="contacto-mini__title">Respuesta rápida</h4>
+              <p class="contacto-mini__text">Te respondemos en menos de 24 horas.</p>
+            </li>
+            <li class="contacto-mini">
+              <svg class="contacto-mini__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.6A3.9 3.9 0 0112 8a3.9 3.9 0 017 2.4c0 5-7 9.6-7 9.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              <h4 class="contacto-mini__title">Atención personalizada</h4>
+              <p class="contacto-mini__text">Hablamos contigo de persona a persona.</p>
+            </li>
+            <li class="contacto-mini">
+              <svg class="contacto-mini__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.3l6-.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              <h4 class="contacto-mini__title">Comunidad real</h4>
+              <p class="contacto-mini__text">No eres un número, eres parte de la comunidad.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3 · Imagen (marco) -->
+        <div class="contacto__media">
+          <div class="contacto__framewrap">
+            <p class="contacto__frame-caption">
+              Únete a nuestra familia <span class="heart" aria-hidden="true">♥</span>
+            </p>
+            <figure class="contacto__frame">
+              <img src="/media/contacto/contacto.jpg" alt="Las Senderistas en la cima con su bandera" loading="lazy" />
+            </figure>
+            <p class="contacto__frame-sub">Juntas, llegamos más lejos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

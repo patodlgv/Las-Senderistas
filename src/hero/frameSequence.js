@@ -1,4 +1,4 @@
-import { TOTAL_FRAMES, frameURL } from "./config.js";
+import { TOTAL_FRAMES, frameURL, IS_MOBILE } from "./config.js";
 
 /**
  * FrameSequence (4K-ready, memoria acotada)
@@ -21,9 +21,11 @@ import { TOTAL_FRAMES, frameURL } from "./config.js";
 
 // Los frames son ligeros (rampa 1920→1280; solo el primero es 4K), así que
 // podemos permitir un cache de decode más generoso → scrub más fluido.
-const MAX_DECODED = 44; // bitmaps vivos a la vez (~1920px ≈ 8 MB c/u)
-const DECODE_AHEAD = 20; // frames a decodificar por delante (dirección del scroll)
-const DECODE_BEHIND = 8; // colchón hacia atrás para scroll inverso
+// En MÓVIL el frame es más grande (1080px) y la RAM del navegador es limitada:
+// mantenemos MUCHOS menos bitmaps decodificados para no reventar el tab de iOS.
+const MAX_DECODED = IS_MOBILE ? 12 : 44; // bitmaps vivos a la vez
+const DECODE_AHEAD = IS_MOBILE ? 6 : 20; // frames a decodificar por delante
+const DECODE_BEHIND = IS_MOBILE ? 3 : 8; // colchón hacia atrás
 
 /**
  * Decodifica un Blob a algo dibujable en canvas.

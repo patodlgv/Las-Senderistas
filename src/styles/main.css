@@ -22,6 +22,8 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  overscroll-behavior-y: none; /* sin rebote/pull-to-refresh en móvil */
+  -webkit-tap-highlight-color: transparent; /* sin flash gris al tocar */
 }
 
 a {
@@ -901,6 +903,8 @@ ul {
 .about-modal__scroll {
   max-height: 88vh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* scroll con inercia en iOS */
+  overscroll-behavior: contain; /* no arrastra el fondo */
   padding: clamp(var(--space-8), 5vw, 56px);
 }
 
@@ -1311,6 +1315,8 @@ ul {
   border: 1px solid rgba(20, 40, 50, 0.1);
   box-shadow: 0 30px 70px -40px rgba(20, 40, 50, 0.55);
   overflow: hidden auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   scrollbar-width: thin;
   opacity: 0;
   visibility: hidden;

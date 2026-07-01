@@ -30,7 +30,7 @@ export const TOTAL_FRAMES = 339;
 
 // Cache-busting: súbelo cuando regeneres/cambies frames para forzar al navegador
 // a re-descargarlos (evita que sirva versiones viejas desde su caché).
-export const FRAMES_VERSION = 5;
+export const FRAMES_VERSION = 6;
 
 // Recorrido de scroll del hero, en viewports (≈350vh de pin).
 export const HERO_SCROLL_VH = 350;

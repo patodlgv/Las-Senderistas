@@ -25,6 +25,36 @@ const MAX_DECODED = 44; // bitmaps vivos a la vez (~1920px ≈ 8 MB c/u)
 const DECODE_AHEAD = 20; // frames a decodificar por delante (dirección del scroll)
 const DECODE_BEHIND = 8; // colchón hacia atrás para scroll inverso
 
+/**
+ * Decodifica un Blob a algo dibujable en canvas.
+ * Usa createImageBitmap (off-thread, ideal) y si NO existe o FALLA (Safari viejo,
+ * algunos WebViews de Android → causa de "pantalla blanca en móvil"), cae a un
+ * <img>. Ambos funcionan con ctx.drawImage y tienen width/height utilizables.
+ */
+async function decodeBlob(blob) {
+  if (typeof createImageBitmap === "function") {
+    try {
+      return await createImageBitmap(blob);
+    } catch (_) {
+      /* cae al fallback con <img> */
+    }
+  }
+  return await new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.decoding = "async";
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve(img);
+    };
+    img.onerror = (e) => {
+      URL.revokeObjectURL(url);
+      reject(e);
+    };
+    img.src = url;
+  });
+}
+
 export class FrameSequence {
   constructor(canvas) {
     this.canvas = canvas;
@@ -97,10 +127,12 @@ export class FrameSequence {
 
     this.decoding.add(i);
     try {
-      const bmp = await createImageBitmap(this.blobs[i]);
+      const bmp = await decodeBlob(this.blobs[i]);
       this.bitmaps.set(i, bmp);
       this._evict();
       return bmp;
+    } catch (_) {
+      return null; // un frame que no decodifica no debe romper el hero
     } finally {
       this.decoding.delete(i);
     }
@@ -168,8 +200,8 @@ export class FrameSequence {
   _drawCover(bitmap) {
     const cw = this.canvas.width;
     const ch = this.canvas.height;
-    const iw = bitmap.width;
-    const ih = bitmap.height;
+    const iw = bitmap.naturalWidth || bitmap.width;
+    const ih = bitmap.naturalHeight || bitmap.height;
 
     const scale = Math.max(cw / iw, ch / ih);
     const dw = iw * scale;

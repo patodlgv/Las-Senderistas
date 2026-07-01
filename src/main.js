@@ -36,6 +36,10 @@ const loaderFill = document.getElementById("loader-fill");
 const loaderPct = document.getElementById("loader-pct");
 const loaderQuote = document.getElementById("loader-quote");
 
+// Red de seguridad: pase lo que pase (error de JS, decode lento en móvil…),
+// el loader NUNCA se queda pegado en blanco. A los 10s se oculta sí o sí.
+setTimeout(() => loaderEl && loaderEl.classList.add("is-hidden"), 10000);
+
 /* Frases de Las Senderistas que rotan en el loader (fondo blanco). */
 (function rotateLoaderQuotes() {
   if (!loaderQuote || !loaderEl) return;
@@ -185,18 +189,26 @@ function updateScenes(progress) {
 }
 
 async function boot() {
-  await sequence.preload(
-    (loaded, total) => {
-      const pct = Math.round((loaded / total) * 100);
-      loaderFill.style.width = pct + "%";
-      loaderPct.textContent = pct + "%";
-    },
-    () => {
-      // Poster inmediato: dibuja el primer frame (4K) apenas está listo.
-      sequence.resize();
-      sequence.draw(0, true);
-    }
-  );
+  try {
+    await sequence.preload(
+      (loaded, total) => {
+        const pct = Math.round((loaded / total) * 100);
+        loaderFill.style.width = pct + "%";
+        loaderPct.textContent = pct + "%";
+      },
+      () => {
+        // Poster inmediato: dibuja el primer frame apenas está listo.
+        sequence.resize();
+        sequence.draw(0, true);
+      }
+    );
+  } catch (e) {
+    // Nunca bloquees el sitio por el hero: continúa e igual oculta el loader.
+    console.warn("[hero] preload falló, continúo sin bloquear:", e);
+  }
+
+  // Oculta el loader YA (aunque el resto falle, el sitio se ve).
+  loaderEl.classList.add("is-hidden");
 
   updateScenes(0); // estado inicial de escenas
 

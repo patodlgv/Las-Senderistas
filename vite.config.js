@@ -7,6 +7,7 @@ export default defineConfig({
     open: false,
   },
   build: {
-    target: "es2020",
+    // Compatibilidad amplia: transpila a Safari 12+ (todos los iPhones en uso).
+    target: ["es2019", "safari12", "chrome70", "firefox68"],
   },
 });

@@ -257,9 +257,11 @@ async function boot() {
 boot();
 
 /* ============================================================
-   Carrusel "Sobre nosotros" — las flechas desplazan el track.
+   Inicializadores. Cada uno se define como función y luego se corre
+   AISLADO: si uno truena (p. ej. en un iPhone/Safari viejo), NO tumba
+   el resto del sitio (antes un solo error dejaba "solo el HTML").
    ============================================================ */
-(function initAboutCarousel() {
+function initAboutCarousel() {
   const track = document.getElementById("about-track");
   if (!track) return;
   const prev = document.querySelector(".about__arrow--prev");
@@ -277,8 +279,6 @@ boot();
     track.scrollBy({ left: step(), behavior: "smooth" })
   );
 
-  // Reproduce cada video solo cuando entra en pantalla; lo pausa al salir.
-  // Así no se descargan/reproducen los 5 videos a la vez estando arriba.
   const videos = track.querySelectorAll("video");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (videos.length && !reduceMotion && "IntersectionObserver" in window) {
@@ -298,12 +298,9 @@ boot();
     );
     videos.forEach((v) => io.observe(v));
   }
-})();
+}
 
-/* ============================================================
-   Carta grande "Sobre nosotras" (modal).
-   ============================================================ */
-(function initAboutModal() {
+function initAboutModal() {
   const opener = document.getElementById("about-open");
   const modal = document.getElementById("about-modal");
   if (!opener || !modal) return;
@@ -333,12 +330,9 @@ boot();
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal.classList.contains("is-open")) close();
   });
-})();
+}
 
-/* ============================================================
-   Mapa de rutas + filtro por dificultad.
-   ============================================================ */
-(function initRutas() {
+function initRutas() {
   const mapEl = document.getElementById("rutas-map");
   if (!mapEl) return;
   const detailEl = document.getElementById("rutas-detail");
@@ -352,27 +346,9 @@ boot();
       api.setFilter(chip.dataset.level);
     });
   });
-})();
+}
 
-/* ============================================================
-   Comunidad — feed de Instagram.
-   ============================================================ */
-initComunidad(document.getElementById("ig-feed"));
-
-/* ============================================================
-   Testimonios — carrusel GSAP.
-   ============================================================ */
-initTestimonios(document.getElementById("testimonios"));
-
-/* ============================================================
-   Preguntas frecuentes — tarjetas flip.
-   ============================================================ */
-initFAQ(document.getElementById("faq"));
-
-/* ============================================================
-   Scroll suave para los enlaces internos del menú y botones.
-   ============================================================ */
-(function initSmoothAnchors() {
+function initSmoothAnchors() {
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     const id = a.getAttribute("href");
     if (!id || id === "#") return;
@@ -384,20 +360,15 @@ initFAQ(document.getElementById("faq"));
       else target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
-})();
+}
 
-/* ============================================================
-   Contacto — el formulario arma el mensaje y lo envía por WhatsApp
-   al número de la dueña (81 1917 6335).
-   ============================================================ */
-(function initContacto() {
+function initContacto() {
   const form = document.getElementById("contacto-form");
   if (!form) return;
   const PHONE = "528119176335";
   const fileInput = document.getElementById("contacto-file");
   const fileName = form.querySelector(".contacto__file-name");
 
-  // Muestra el nombre del archivo elegido (y avisa si pasa de 10 MB).
   fileInput?.addEventListener("change", () => {
     const f = fileInput.files && fileInput.files[0];
     if (!f) {
@@ -414,7 +385,7 @@ initFAQ(document.getElementById("faq"));
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (!form.reportValidity()) return; // valida requeridos + email
+    if (!form.reportValidity()) return;
 
     const data = new FormData(form);
     const nombre = (data.get("nombre") || "").toString().trim();
@@ -436,4 +407,22 @@ initFAQ(document.getElementById("faq"));
       "noopener"
     );
   });
-})();
+}
+
+// Corre cada init por separado; un fallo se registra pero no rompe el resto.
+[
+  ["about-carousel", initAboutCarousel],
+  ["about-modal", initAboutModal],
+  ["rutas", initRutas],
+  ["comunidad", () => initComunidad(document.getElementById("ig-feed"))],
+  ["testimonios", () => initTestimonios(document.getElementById("testimonios"))],
+  ["faq", () => initFAQ(document.getElementById("faq"))],
+  ["smooth-anchors", initSmoothAnchors],
+  ["contacto", initContacto],
+].forEach((pair) => {
+  try {
+    pair[1]();
+  } catch (e) {
+    console.warn("[init] falló:", pair[0], e);
+  }
+});

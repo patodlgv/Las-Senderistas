@@ -197,6 +197,72 @@ ul {
   color: var(--white);
 }
 
+/* --- Enlace a la tienda (merch) --- */
+.nav__shop {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+  transition: color 0.3s var(--ease-soft), background-color 0.3s var(--ease-soft), transform 0.35s var(--ease-out);
+}
+
+.nav__shop-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.nav__shop:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.nav__shop:hover .nav__shop-icon {
+  transform: translateY(-2px) rotate(-6deg);
+}
+
+/* With the shop link the desktop bar is one item longer: from 1366px keep
+   every label on one line, tightening the link gap until there is room.
+   Below 1440px the bar wraps two labels, as it did before the shop link. */
+@media (min-width: 1440px) {
+  .nav__logo-name,
+  .nav__link,
+  .nav .btn--pill {
+    white-space: nowrap;
+  }
+  .nav__logo,
+  .nav .btn--pill {
+    flex-shrink: 0;
+  }
+}
+@media (min-width: 1440px) and (max-width: 1599px) {
+  .nav__links {
+    gap: clamp(var(--space-3), 1.1vw, var(--space-8));
+  }
+}
+
+.nav__mobile-link--shop {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-accent);
+}
+
+.nav__mobile-link--shop .nav__shop-icon {
+  width: 0.9em;
+  height: 0.9em;
+}
+
 /* --- Hamburguesa + menú móvil --- */
 .nav__toggle {
   display: none;
@@ -3483,6 +3549,10 @@ ul {
   /* En pantallas angostas: fuera la pastilla, entra el hamburguesa */
   .nav .btn--pill {
     display: none;
+  }
+  /* La tienda sigue a la vista junto al menú */
+  .nav__shop {
+    margin-left: auto;
   }
   .nav__toggle {
     display: flex;

@@ -92,11 +92,13 @@ export function initRutasMap(rootEl, detailEl) {
   map.attributionControl.setPrefix("");
   L.control.zoom({ position: "topright" }).addTo(map);
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    subdomains: "abcd",
-    maxZoom: 19,
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas";
+  L.tileLayer(`${ESRI}/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}`, {
+    maxZoom: 16,
+    attribution: 'Powered by <a href="https://www.esri.com">Esri</a> &middot; Esri, HERE, Garmin, &copy; OpenStreetMap',
+  }).addTo(map);
+  L.tileLayer(`${ESRI}/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}`, {
+    maxZoom: 16,
   }).addTo(map);
 
   // Zoom con rueda solo al enfocar el mapa.

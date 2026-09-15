@@ -34,10 +34,9 @@ const CATEGORIES = [
         q: "¿Cómo reservo una experiencia?",
         a: "Elige la fecha que te interese y escríbenos por WhatsApp; te llega un mensaje listo para enviar y te confirmamos tu lugar con todos los detalles.",
       },
-      { q: "¿Cuál es el costo?", a: "Hikes locales: $400 MXN. Viajes especiales: bajo cotización." },
       {
-        q: "¿Qué métodos de pago aceptan?",
-        a: "El pago del hike local se coordina por WhatsApp (transferencia o efectivo). Para los viajes te compartimos las opciones al momento de cotizar.",
+        q: "¿Cuál es el costo?",
+        a: "El costo depende de la ruta que elijas y comienza desde $400 MXN por persona. Cada experiencia indica su precio, duración y lo que incluye.",
       },
       {
         q: "¿La reserva queda confirmada?",
@@ -77,7 +76,7 @@ const CATEGORIES = [
     items: [
       {
         q: "¿Es seguro? ¿Voy a ir sola?",
-        a: "Nunca caminas sola. Vamos en grupo con guías experimentadas, rutas planificadas y protocolos de seguridad durante todo el recorrido.",
+        a: "Nunca caminas sola. Vamos en grupo y nuestro equipo te acompaña durante todo el recorrido, con rutas planificadas y protocolos de seguridad. En los viajes también vas con guías expertos y locales que conocen el destino.",
       },
       {
         q: "¿Qué pasa si hay mal clima?",

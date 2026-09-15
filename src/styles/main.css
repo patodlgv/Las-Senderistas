@@ -140,30 +140,48 @@ ul {
   padding: clamp(var(--space-5), 3vw, var(--space-8)) clamp(var(--space-5), 4vw, var(--space-16));
 }
 
+/* Logo = el de la tienda: letras con el corazón arriba a la derecha y el
+   lema debajo. Todo se escala con --logo-h (alto de las letras). */
 .nav__logo {
-  display: flex;
-  flex-direction: column;
+  --logo-h: clamp(28px, 2.5vw, 38px);
+  display: grid;
+  justify-items: center;
+  gap: calc(var(--logo-h) * 0.12);
+  flex-shrink: 0;
+  padding-top: calc(var(--logo-h) * 0.25); /* espacio para el corazón */
+  padding-right: calc(var(--logo-h) * 0.62);
   line-height: 1;
 }
 
-.nav__logo-name {
-  font-family: var(--font-script);
-  font-weight: 700;
-  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
-  color: var(--white);
-  letter-spacing: 0.01em;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+.nav__logo-lockup {
+  position: relative;
+  display: block;
+}
+
+.nav__logo-wordmark {
+  display: block;
+  width: auto;
+  height: var(--logo-h);
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
+}
+
+.nav__logo-heart {
+  position: absolute;
+  top: calc(var(--logo-h) * -0.24);
+  right: calc(var(--logo-h) * -0.74);
+  width: auto;
+  height: calc(var(--logo-h) * 0.66);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
 .nav__logo-tag {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 4px;
-  padding-left: 2px;
+  font-size: calc(var(--logo-h) * 0.31);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
 
 .nav__links {
@@ -248,12 +266,10 @@ ul {
    every label on one line, tightening the link gap until there is room.
    Below 1440px the bar wraps two labels, as it did before the shop link. */
 @media (min-width: 1440px) {
-  .nav__logo-name,
   .nav__link,
   .nav .btn--pill {
     white-space: nowrap;
   }
-  .nav__logo,
   .nav .btn--pill {
     flex-shrink: 0;
   }
@@ -1248,7 +1264,7 @@ ul {
   font-size: 0.86rem;
   line-height: 1.55;
   color: #5d6b71;
-  max-width: 30ch;
+  max-width: 34ch;
 }
 
 @media (max-width: 1024px) {
@@ -3577,8 +3593,11 @@ ul {
 }
 
 @media (max-width: 560px) {
+  .nav__logo {
+    --logo-h: 25px;
+  }
   .nav__logo-tag {
-    display: none;
+    font-size: 8.5px;
   }
   .hero__actions .btn {
     flex: 1 1 auto;

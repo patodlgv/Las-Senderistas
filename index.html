@@ -34,8 +34,12 @@
       <!-- NAV persistente (se mantiene a través de las escenas) -->
       <header class="nav">
         <a class="nav__logo" href="#hero" aria-label="Las Senderistas, inicio">
-          <span class="nav__logo-name">Las Senderistas</span>
-          <span class="nav__logo-tag">Comunidad de Hike <span class="heart" aria-hidden="true">♥</span></span>
+          <!-- Mismo logo que la tienda (/shop): letras + corazón + lema -->
+          <span class="nav__logo-lockup">
+            <img class="nav__logo-wordmark" src="/media/brand/logo-wordmark-white.png" alt="" width="800" height="153" />
+            <img class="nav__logo-heart" src="/media/brand/logo-heart-white.png" alt="" width="200" height="182" />
+          </span>
+          <span class="nav__logo-tag">Club de Hike y Viajes</span>
         </a>
 
         <nav class="nav__links" aria-label="Principal">
@@ -506,8 +510,9 @@
             <circle cx="18" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6" />
             <path d="M7.5 19c0-3 2-4.8 4.5-4.8S16.5 16 16.5 19M2.5 18c0-2.4 1.4-3.9 3.5-3.9M21.5 18c0-2.4-1.4-3.9-3.5-3.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
           </svg>
-          <h3 class="about-feature__title">Guías expertos</h3>
-          <p class="about-feature__text">Acompañamiento profesional en cada paso del camino.</p>
+          <h3 class="about-feature__title">Acompañamiento en todo momento</h3>
+          <p class="about-feature__text">Durante el recorrido irás acompañada por nuestro equipo, listas para apoyarte, cuidarte y orientarte. Nunca estarás sola en el camino.</p>
+          <p class="about-feature__text">En los viajes nos aseguramos de que estés acompañada por guías expertos y locales que conocen el destino y nos pueden brindar orientación, seguridad y respuesta cuando se necesita.</p>
         </li>
         <li class="about-feature">
           <svg class="about-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -516,15 +521,15 @@
             <path d="M8.5 7l1.4-2.2h4.2L15.5 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
           </svg>
           <h3 class="about-feature__title">Experiencias auténticas</h3>
-          <p class="about-feature__text">Conexión real con la naturaleza y las comunidades locales.</p>
+          <p class="about-feature__text">Conecta con la naturaleza, haz ejercicio y comparte el camino con grandes mujeres. Aquí nacen nuevas amistades y recuerdos que se quedan contigo.</p>
         </li>
         <li class="about-feature">
           <svg class="about-feature__icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 21c0-6 0-9 7-12 0 7-2 11-7 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
             <path d="M12 21c-4-1-7-4-7-9 5 1 7 3 7 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
           </svg>
-          <h3 class="about-feature__title">Turismo responsable</h3>
-          <p class="about-feature__text">Cuidamos cada destino para que siga inspirando a futuras generaciones.</p>
+          <h3 class="about-feature__title">Senderismo responsable</h3>
+          <p class="about-feature__text">Cuidamos cada ruta para que la sigan disfrutando las futuras generaciones.</p>
         </li>
       </ul>
 
@@ -565,9 +570,11 @@
             <h4 class="about-modal__subtitle">Lo que nos mueve</h4>
             <ul class="about-modal__values">
               <li>
-                <strong>Seguridad.</strong> Nunca caminas sola. Guías con
-                experiencia, rutas planificadas y grupos pequeños por nivel para
-                que vivas la aventura con tranquilidad.
+                <strong>Seguridad.</strong> Nunca caminas sola. Nuestro equipo
+                te acompaña durante todo el recorrido, con rutas planificadas y
+                grupos pequeños por nivel para que vivas la aventura con
+                tranquilidad. En los viajes vas con guías expertos y locales que
+                conocen el destino.
               </li>
               <li>
                 <strong>Comunidad.</strong> Un espacio entre mujeres donde todas

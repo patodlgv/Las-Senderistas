@@ -13,6 +13,19 @@
 
 html {
   scroll-behavior: auto; /* el scrub maneja la suavidad */
+  /* Instrument Serif solo tiene peso 400 (igual que en la tienda): sin
+     negritas falsas cuando un titular pide 600/700. */
+  font-synthesis-weight: none;
+}
+
+/* Mientras carga el hero no se puede hacer scroll: si no, el video avanza
+   con frames que aún no bajan y la página se traba. main.js quita la clase. */
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 body {
@@ -3479,7 +3492,7 @@ ul {
    LOADER
    ============================================================ */
 .loader {
-  position: absolute;
+  position: fixed; /* cubre la pantalla completa, no solo el hero */
   inset: 0;
   z-index: 50; /* por encima del nav (25) para tapar todo mientras carga */
   display: flex;

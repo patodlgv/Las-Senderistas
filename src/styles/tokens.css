@@ -31,9 +31,9 @@
   --space-16: 64px;
 
   /* Tipografía — familias y escala modular (ratio 1.25) */
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --font-script: "Dancing Script", "Brush Script MT", cursive;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --text-sm: 0.8rem;
   --text-base: 1rem;
   --text-lg: 1.25rem;

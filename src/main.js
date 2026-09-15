@@ -36,9 +36,38 @@ const loaderFill = document.getElementById("loader-fill");
 const loaderPct = document.getElementById("loader-pct");
 const loaderQuote = document.getElementById("loader-quote");
 
-// Red de seguridad: pase lo que pase (error de JS, decode lento en móvil…),
-// el loader NUNCA se queda pegado en blanco. A los 10s se oculta sí o sí.
-setTimeout(() => loaderEl && loaderEl.classList.add("is-hidden"), 10000);
+/* Bloqueo de scroll mientras carga (html.is-loading viene desde el HTML).
+   Si la usuaria desliza antes de tiempo, el scrub avanza sobre frames que
+   aún no descargan y la página se traba. Se libera al ocultar el loader. */
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
+if (lenis) lenis.stop();
+const blockScroll = (e) => e.preventDefault();
+const SCROLL_KEYS = new Set(["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " ", "Spacebar"]);
+const blockKeys = (e) => {
+  if (SCROLL_KEYS.has(e.key)) e.preventDefault();
+};
+window.addEventListener("wheel", blockScroll, { passive: false });
+window.addEventListener("touchmove", blockScroll, { passive: false });
+window.addEventListener("keydown", blockKeys);
+
+let loaderDone = false;
+function hideLoader() {
+  if (loaderDone || !loaderEl) return;
+  loaderDone = true;
+  loaderEl.classList.add("is-hidden");
+  document.documentElement.classList.remove("is-loading");
+  window.removeEventListener("wheel", blockScroll);
+  window.removeEventListener("touchmove", blockScroll);
+  window.removeEventListener("keydown", blockKeys);
+  window.scrollTo(0, 0);
+  if (lenis) lenis.start();
+  ScrollTrigger.refresh();
+}
+
+// Red de seguridad: pase lo que pase (error de JS, red muy lenta…), el
+// loader NUNCA se queda pegado. A los 25s se oculta y se libera el scroll.
+setTimeout(hideLoader, 25000);
 
 /* Frases de Las Senderistas que rotan en el loader (fondo blanco). */
 (function rotateLoaderQuotes() {
@@ -208,7 +237,7 @@ async function boot() {
   }
 
   // Oculta el loader YA (aunque el resto falle, el sitio se ve).
-  loaderEl.classList.add("is-hidden");
+  hideLoader();
 
   updateScenes(0); // estado inicial de escenas
 
@@ -251,7 +280,7 @@ async function boot() {
     { passive: true }
   );
 
-  loaderEl.classList.add("is-hidden");
+  hideLoader();
 }
 
 boot();

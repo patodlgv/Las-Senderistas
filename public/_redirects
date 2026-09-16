@@ -1,0 +1,3 @@
+# lasenderistas.com (dominio viejo) → lassenderistas.com.mx, conservando la ruta.
+https://lasenderistas.com/* https://lassenderistas.com.mx/:splat 301!
+https://www.lasenderistas.com/* https://lassenderistas.com.mx/:splat 301!
